@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.6](https://github.com/shinokada/svelte-lib-helpers/compare/v0.2.5...v0.2.6) (2023-08-20)
+
+
+### Features
+
+* update index and README ([01bb46d](https://github.com/shinokada/svelte-lib-helpers/commit/01bb46d5b33b5443c8a0a30982f8d52843a12f79))
+
 ### [0.2.5](https://github.com/shinokada/svelte-lib-helpers/compare/v0.2.4...v0.2.5) (2023-08-20)
 
 
