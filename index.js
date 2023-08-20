@@ -10,10 +10,11 @@ const distDir = './dist';
 const packageJsonPath = './package.json';
 
 const args = process.argv.slice(2);
+const documentationURL = process.argv[3]; 
 const command = args[0];
 
 // add component docs
-const addCompoDocs = (srcDir) => {
+const addCompoDocs = (srcDir, documentationURL) => {
   // const srcDir = path.join(__dirname, 'src', 'lib');
 
   const processFile = (filePath) => {
@@ -29,7 +30,7 @@ const addCompoDocs = (srcDir) => {
         return `@prop ${line.replace(/\/\/.*$/, '').trim()}`;
       }).join('\n');
 
-      content = `${content}\n\n<!--\n@component\n[Go to Popover](https://flowbite-svelte.com/)\n## Props\n${propComment}\n-->\n`;
+      content = `${content}\n\n<!--\n@component\n[Go to docs](${documentationURL})\n## Props\n${propComment}\n-->\n`;
 
       fs.writeFileSync(filePath, content, 'utf-8');
     }
@@ -50,7 +51,7 @@ const addCompoDocs = (srcDir) => {
     }
   };
   console.log("Generating documentation...");
-  traverseDirectory(srcDir);
+  traverseDirectory(srcDir, documentationURL);
   console.log("All done!");
 };
 // end of component docs
