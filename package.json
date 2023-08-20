@@ -1,0 +1,15 @@
+{
+  "name": "svelte-lib-helpers",
+  "version": "0.1.0",
+  "description": "A utility package for Svelte libraries.",
+  "type": "module", 
+  "bin": {
+    "svelte-lib-helpers": "./index.js"
+  },
+  "scripts": {
+    "add-exports": "./index.js exports",
+    "add-docs": "./index.js docs"
+  },
+  "author": "Shinichi Okada",
+  "license": "MIT"
+}
