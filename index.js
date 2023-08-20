@@ -3,8 +3,14 @@
 import fs from 'fs';
 import path from 'path';
 
+const srcDir = './src/lib'
+const distDir = './dist';
+const packageJsonPath = './package.json';
 
-const addCompoDocs = (srcdir) => {
+const args = process.argv.slice(2);
+const command = args[0];
+
+const addCompoDocs = (srcDir) => {
   // const srcDir = path.join(__dirname, 'src', 'lib');
 
   const processFile = (filePath) => {
@@ -124,18 +130,8 @@ const indexDtsPath = path.join(distDir, 'index.d.ts');
 };
 
 
-// const __filename = new URL(import.meta.url).pathname;
-// const __dirname = path.dirname(__filename);
-
-const libDir = './src/lib'
-const distDir = './dist';
-const packageJsonPath = './package.json';
-
-const args = process.argv.slice(2);
-const command = args[0];
-
 if (command === "docs") {
-  addCompoDocs(libDir);
+  addCompoDocs(srcDir);
 } else if (command === "exports") {
   updatePackageJsonExports(distDir, packageJsonPath);
 } else if (command === "package") {
