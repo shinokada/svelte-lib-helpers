@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://github.com/shinokada/svelte-lib-helpers/compare/v0.2.4...v0.2.5) (2023-08-20)
+
+
+### Features
+
+* create props dir if it does not exist ([11cbb01](https://github.com/shinokada/svelte-lib-helpers/commit/11cbb01121e08e7a090011ed57be24531926cbfc))
+
 ### [0.2.4](https://github.com/shinokada/svelte-lib-helpers/compare/v0.2.3...v0.2.4) (2023-08-20)
 
 ### [0.2.3](https://github.com/shinokada/svelte-lib-helpers/compare/v0.2.2...v0.2.3) (2023-08-20)
