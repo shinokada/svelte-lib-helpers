@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/shinokada/svelte-lib-helpers/compare/v0.1.5...v0.2.1) (2023-08-20)
+
+
+### Features
+
+* add createProps ([d2fa4ca](https://github.com/shinokada/svelte-lib-helpers/commit/d2fa4ca42afe46bb2765db614346f3f239599524))
+* update package scripts ([51b63f3](https://github.com/shinokada/svelte-lib-helpers/commit/51b63f3563e435425e48029a6fe607876f7f6392))
+
+
+### Bug Fixes
+
+* index commands ([f5fb2a6](https://github.com/shinokada/svelte-lib-helpers/commit/f5fb2a693b07109d5da57ada74889d0633f63923))
+
 ### [0.1.5](https://github.com/shinokada/svelte-lib-helpers/compare/v0.1.4...v0.1.5) (2023-08-20)
 
 
