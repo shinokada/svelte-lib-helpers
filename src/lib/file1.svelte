@@ -32,8 +32,4 @@
 ## Props
 @prop export let defaultClass: string = 'py-2 px-3';
 @prop export let title: string = '';
-
-hello this is a test
-hello this is a test
-hello this is a test
 -->

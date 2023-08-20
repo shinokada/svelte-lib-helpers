@@ -8,7 +8,8 @@
   },
   "scripts": {
     "add-exports": "./index.js exports",
-    "add-docs": "./index.js docs"
+    "add-docs": "./index.js docs",
+    "add-package": "./index.js package"
   },
   "author": "Shinichi Okada",
   "license": "MIT"
