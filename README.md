@@ -16,8 +16,7 @@ Svelte Lib Helpers provides the following subcommands to enhance your Svelte lib
 
 **exports**
 
-Automatically updates the exports field in your package.json by adding all Svelte files within the src/lib directory.
-This allows your Svelte library to import component individually.
+The `exports` subcommand simplifies updating your package.json by adding or updating all Svelte files in src/lib. This enables efficient imports of individual components and reducing package size for developers.
 
 **docs**
 
