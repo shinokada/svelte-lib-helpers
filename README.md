@@ -41,7 +41,8 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
     "add-docs": "svelte-lib-helpers docs",
     "gen-props": "svelte-lib-helpers props",
     "copy-package": "svelte-lib-helpers package",
-    "lib-helpers": "npm run add-docs && npm run gen-props && npm run build && npm run add-exports && npm run copy-package"
+    "lib-helpers": "npm run add-docs && npm run gen-props && npm run build && npm run add-exports && npm run copy-package",
+    "package:publish": "standard-version && git push --follow-tags origin main && npm run lib-helpers && npm publish",
   // ...
 }
 ```
