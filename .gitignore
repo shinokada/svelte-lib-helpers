@@ -1,0 +1,17 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+/dist
+
+.vercel
+.vscode/
+
+/src/routes/compotests
+/src/routes/typechecktests
+
+package-lock.json
+yarn.lock
+
+src/routes/testdir/*
