@@ -37,10 +37,10 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
 ```json
 "scripts": {
   // ...
-    "add-exports": "npx svelte-lib-helpers exports",
-    "add-docs": "npx svelte-lib-helpers docs",
-    "gen-props": "npx svelte-lib-helpers props",
-    "copy-package": "npx svelte-lib-helpers package",
+    "add-exports": "svelte-lib-helpers exports",
+    "add-docs": "svelte-lib-helpers docs",
+    "gen-props": "svelte-lib-helpers props",
+    "copy-package": "svelte-lib-helpers package",
     "lib-helpers": "npm run add-docs && npm run gen-props && npm run build && npx svelte-lib-helpers exports && npm run copy-package"
   // ...
 }
