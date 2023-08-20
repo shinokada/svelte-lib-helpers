@@ -4,8 +4,8 @@ import fs from 'fs';
 import path from 'path';
 
 
-const addCompoDocs = () => {
-  const srcDir = path.join(__dirname, 'src', 'lib');
+const addCompoDocs = (srcdir) => {
+  // const srcDir = path.join(__dirname, 'src', 'lib');
 
   const processFile = (filePath) => {
     let content = fs.readFileSync(filePath, 'utf-8');
@@ -124,22 +124,22 @@ const indexDtsPath = path.join(distDir, 'index.d.ts');
 };
 
 
-const __filename = new URL(import.meta.url).pathname;
-const __dirname = path.dirname(__filename);
+// const __filename = new URL(import.meta.url).pathname;
+// const __dirname = path.dirname(__filename);
+
+const libDir = './src/lib'
+const distDir = './dist';
+const packageJsonPath = './package.json';
 
 const args = process.argv.slice(2);
 const command = args[0];
 
 if (command === "docs") {
-  addCompoDocs();
+  addCompoDocs(libDir);
 } else if (command === "exports") {
-  const distDir = './dist';
-  const packageJsonPath = './package.json';
-  updatePackageJsonExports();
+  updatePackageJsonExports(distDir, packageJsonPath);
 } else if (command === "package") {
-  const distDir = './dist';
-  const packageJsonPath = './package.json';
-  exportSvelteComponents();
+  exportSvelteComponents(distDir, packageJsonPath);
 } else {
   console.log("Unknown command. Available commands: docs, exports");
 }
