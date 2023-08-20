@@ -10,6 +10,7 @@ const packageJsonPath = './package.json';
 const args = process.argv.slice(2);
 const command = args[0];
 
+// add component docs
 const addCompoDocs = (srcDir) => {
   // const srcDir = path.join(__dirname, 'src', 'lib');
 
@@ -50,72 +51,35 @@ const addCompoDocs = (srcDir) => {
   traverseDirectory(srcDir);
   console.log("All done!");
 };
+// end of component docs
 
+// add export to package.json
+export const exportSvelteComponents = (distDir, packageJsonPath) => {
+  console.log('Adding Svelte components to package.json')
+  const componentNames = fs.readdirSync(distDir);
+  const componentExports = {};
 
-const exportSvelteComponents = (distDir, packageJsonPath) => {
-const componentNames = fs.readdirSync(distDir);
-const componentExports = {};
+  for (const componentName of componentNames) {
+    const componentDir = path.join(distDir, componentName);
+    if (!fs.existsSync(componentDir) || !fs.lstatSync(componentDir).isDirectory()) {
+      continue;
+    }
+    const componentFiles = fs.readdirSync(componentDir);
 
-for (const componentName of componentNames) {
-  const componentDir = path.join(distDir, componentName);
-  if (!fs.existsSync(componentDir) || !fs.lstatSync(componentDir).isDirectory()) {
-    continue;
+    const svelteFiles = componentFiles.filter((file) => file.endsWith('.svelte'));
+
+    for (const svelteFile of svelteFiles) {
+      const dtsFile = `${svelteFile}.d.ts`;
+      const exportKey = `./${svelteFile}`;
+
+      componentExports[exportKey] = {
+        types: `./dist/${componentName}/${dtsFile}`,
+        svelte: `./dist/${componentName}/${svelteFile}`,
+      };
+    }
   }
-  const componentFiles = fs.readdirSync(componentDir);
 
-  const svelteFiles = componentFiles.filter((file) => file.endsWith('.svelte'));
-
-  for (const svelteFile of svelteFiles) {
-    const dtsFile = `${svelteFile}.d.ts`;
-    const exportKey = `./${svelteFile}`;
-
-    componentExports[exportKey] = {
-      types: `./dist/${componentName}/${dtsFile}`,
-      svelte: `./dist/${componentName}/${svelteFile}`,
-    };
-  }
-}
-
-const indexDtsPath = path.join(distDir, 'index.d.ts');
-if (fs.existsSync(indexDtsPath) && fs.lstatSync(indexDtsPath).isFile()) {
-  componentExports['.'] = {
-    types: './dist/index.d.ts',
-    svelte: './dist/index.js',
-  };
-}
-
-const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-packageJson.exports = componentExports;
-
-fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-}
-
-
-const updatePackageJsonExports = (distDir, packageJsonPath) => {
-const componentNames = fs.readdirSync(distDir);
-const componentExports = {};
-
-for (const componentName of componentNames) {
-  const componentDir = path.join(distDir, componentName);
-  if (!fs.existsSync(componentDir) || !fs.lstatSync(componentDir).isDirectory()) {
-    continue;
-  }
-  const componentFiles = fs.readdirSync(componentDir);
-
-  const svelteFiles = componentFiles.filter((file) => file.endsWith('.svelte'));
-
-  for (const svelteFile of svelteFiles) {
-    const dtsFile = `${svelteFile}.d.ts`;
-    const exportKey = `./${svelteFile}`;
-
-    componentExports[exportKey] = {
-      types: `./dist/${componentName}/${dtsFile}`,
-      svelte: `./dist/${componentName}/${svelteFile}`,
-    };
-  }
-}
-
-const indexDtsPath = path.join(distDir, 'index.d.ts');
+  const indexDtsPath = path.join(distDir, 'index.d.ts');
   if (fs.existsSync(indexDtsPath) && fs.lstatSync(indexDtsPath).isFile()) {
     componentExports['.'] = {
       types: './dist/index.d.ts',
@@ -127,13 +91,31 @@ const indexDtsPath = path.join(distDir, 'index.d.ts');
   packageJson.exports = componentExports;
 
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-};
+}
+// end export to package.json
 
+// copy package.json
+export function copyPackageToDist (outputDirectory = './dist') {
+  console.log('Copying package.json to ./dist dir.')
+  try {
+    // read file into JSON
+    const packageJson = fs.readFileSync('package.json', 'utf-8');
+    const pkg = JSON.parse(packageJson);
+
+    // write it to your output directory
+    const newPackagePath = path.join(outputDirectory, 'package.json');
+    fs.writeFileSync(newPackagePath, JSON.stringify(pkg, null, 2));
+
+    console.log(`The package.json file has been updated and written to ${newPackagePath}.`);
+  } catch (error) {
+    console.error(`An error occurred while processing the package.json file: ${error.message}`);
+  }
+}
 
 if (command === "docs") {
   addCompoDocs(srcDir);
 } else if (command === "exports") {
-  updatePackageJsonExports(distDir, packageJsonPath);
+  copyPackageToDist(distDir, packageJsonPath);
 } else if (command === "package") {
   exportSvelteComponents(distDir, packageJsonPath);
 } else {
