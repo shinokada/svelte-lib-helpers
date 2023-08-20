@@ -10,7 +10,8 @@
   "scripts": {
     "add-exports": "./index.js exports",
     "add-docs": "./index.js docs",
-    "add-package": "./index.js package"
+    "add-package": "./index.js package",
+    "add-props": "./index.js props"
   },
   "repository": {
     "type": "git",
