@@ -94,7 +94,7 @@ export const exportSvelteComponents = (distDir, packageJsonPath) => {
 }
 // end export to package.json
 
-// copy package.json
+// copy package.json to 
 export function copyPackageToDist (outputDirectory = './dist') {
   console.log('Copying package.json to ./dist dir.')
   try {
@@ -115,9 +115,9 @@ export function copyPackageToDist (outputDirectory = './dist') {
 if (command === "docs") {
   addCompoDocs(srcDir);
 } else if (command === "exports") {
-  copyPackageToDist(distDir, packageJsonPath);
-} else if (command === "package") {
   exportSvelteComponents(distDir, packageJsonPath);
+} else if (command === "package") {
+  copyPackageToDist(distDir, packageJsonPath);
 } else {
   console.log("Unknown command. Available commands: docs, exports");
 }

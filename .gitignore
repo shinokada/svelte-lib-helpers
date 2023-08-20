@@ -4,6 +4,7 @@ node_modules
 /.svelte-kit
 /package
 /dist
+/src
 
 .vercel
 .vscode/
