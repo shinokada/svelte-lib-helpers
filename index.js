@@ -10,13 +10,18 @@ const distDir = './dist';
 const packageJsonPath = './package.json';
 
 const args = process.argv.slice(2);
-const documentationURL = process.argv[3]; 
 const command = args[0];
 
 // add component docs
-const addCompoDocs = (srcDir, documentationURL) => {
+const addCompoDocs = (srcDir) => {
   // const srcDir = path.join(__dirname, 'src', 'lib');
+  const packageJsonPath = path.join(process.cwd(), 'package.json');
+  const documentationURL = getDocumentationURL(packageJsonPath);
 
+  if (!documentationURL) {
+    throw new Error('"homepage" value is not specified in package.json');
+  }
+  
   const processFile = (filePath) => {
     let content = fs.readFileSync(filePath, 'utf-8');
 
@@ -53,6 +58,16 @@ const addCompoDocs = (srcDir, documentationURL) => {
   console.log("Generating documentation...");
   traverseDirectory(srcDir, documentationURL);
   console.log("All done!");
+};
+// this will find the hompage value from package.json
+const getDocumentationURL = (packageJsonPath) => {
+  try {
+    const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf-8');
+    const packageJsonData = JSON.parse(packageJsonContent);
+    return packageJsonData.homepage || null;
+  } catch (error) {
+    return null; // Could not read or parse package.json
+  }
 };
 // end of component docs
 
