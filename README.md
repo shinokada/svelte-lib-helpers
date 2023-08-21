@@ -20,7 +20,12 @@ The `exports` subcommand simplifies updating your package.json by adding or upda
 
 **docs**
 
-Generates component documentation for all Svelte files within the src/lib directory.
+Generates component documentation for all Svelte files within the src/lib directory. 
+You need to set "homepage" value in your `package.json` file.
+
+```json
+ "homepage": "https://flowbite-svelte.com/",
+```
 
 **package**
 
@@ -38,7 +43,7 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
 "scripts": {
   // ...
     "add-exports": "svelte-lib-helpers exports",
-    "add-docs": "svelte-lib-helpers docs https://flowbite-svelte.com/",
+    "add-docs": "svelte-lib-helpers docs",
     "gen-props": "svelte-lib-helpers props",
     "copy-package": "svelte-lib-helpers package",
     "lib-helpers": "npm run add-docs && npm run gen-props && npm run build && npm run add-exports && npm run copy-package",
