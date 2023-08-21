@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.8](https://github.com/shinokada/svelte-lib-helpers/compare/v0.2.7...v0.2.8) (2023-08-21)
+
+
+### Features
+
+* read homepage value from package.json ([769ce5d](https://github.com/shinokada/svelte-lib-helpers/commit/769ce5d4ac52d730617a3b0ecb0e46a1c7bb9828))
+
 ### [0.2.7](https://github.com/shinokada/svelte-lib-helpers/compare/v0.2.6...v0.2.7) (2023-08-20)
 
 
