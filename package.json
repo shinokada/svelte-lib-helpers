@@ -1,6 +1,6 @@
 {
   "name": "svelte-lib-helpers",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A utility package for Svelte libraries.",
   "type": "module",
   "main": "index.js",
@@ -8,14 +8,10 @@
     "svelte-lib-helpers": "index.js"
   },
   "scripts": {
-    "add-exports": "./index.js exports",
-    "add-docs": "./index.js docs",
-    "add-package": "./index.js package",
-    "add-data": "./index.js compo-data",
-    "gen:exports": "svelte-lib-helpers exports",
-    "gen:docs": "svelte-lib-helpers docs",
-    "gen:compo-data": "svelte-lib-helpers compo-data",
-    "copy:package": "svelte-lib-helpers package",
+    "gen:exports": "./index.js exports",
+    "gen:docs": "./index.js docs",
+    "gen:compo-data": "./index.js compo-data",
+    "copy:package": "./index.js package",
     "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run build && npm run gen:exports && npm run copy:package",
     "package:publish": "standard-version && git push --follow-tags origin main && npm run lib-helpers && npm publish"
   },
