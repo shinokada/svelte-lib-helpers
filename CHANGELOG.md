@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/shinokada/svelte-lib-helpers/compare/v0.2.8...v0.3.1) (2023-08-22)
+
+
+### Features
+
+* add events and slots ([551f449](https://github.com/shinokada/svelte-lib-helpers/commit/551f449a9f0adfe695b16fb1df4e76b0f810c27e))
+
+
+### Bug Fixes
+
+* update package.json ([9d60d6a](https://github.com/shinokada/svelte-lib-helpers/commit/9d60d6aa5638fc8e1be450a2f01b881ee7fa98eb))
+
 ### [0.2.8](https://github.com/shinokada/svelte-lib-helpers/compare/v0.2.7...v0.2.8) (2023-08-21)
 
 
