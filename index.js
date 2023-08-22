@@ -209,11 +209,23 @@ async function generateComponentData () {
           await readdir(dirPath)
         ).map(async (entity) => {
           const path = join(dirPath, entity);
-          return (await lstat(path)).isDirectory() ? await deepReadDir(path) : path;
+          // return (await lstat(path)).isDirectory() ? await deepReadDir(path) : path;
+          const stats = await lstat(path);
+        
+          if (stats.isDirectory()) {
+            return await deepReadDir(path);
+          } else {
+            // Filter out unwanted files here (e.g., .DS_Store)
+            if (entity !== '.DS_Store') {
+              return path;
+            } else {
+              return null;
+            }
+          }
         })
       );
     const files = await deepReadDir(srcLib);
-    const all = files.flat(Number.POSITIVE_INFINITY);
+    const all = files.flat(Number.POSITIVE_INFINITY).filter(Boolean);
     return all;
   }
 
@@ -313,9 +325,9 @@ async function generateComponentData () {
     });
 
     // Set the 'props' key in the obj to the extracted result array
-    obj.props = result;
+    // obj.props = result;
 
-    return obj;
+    return result;
   }
 
   // Function to extract slot names from a Svelte file
