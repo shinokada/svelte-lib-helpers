@@ -21,7 +21,7 @@ const addCompoDocs = (srcDir) => {
   if (!documentationURL) {
     throw new Error('"homepage" value is not specified in package.json');
   }
-  
+
   const processFile = (filePath) => {
     let content = fs.readFileSync(filePath, 'utf-8');
 
@@ -131,9 +131,13 @@ export function copyPackageToDist (outputDirectory = './dist') {
 }
 
 // create props
-async function createProps() {
+async function generateComponentData () {
+  /*
+  The default value for destination is ./src/routes/component-data/ and
+  for src is ./src/lib. Use --dest destination-dir and --src source-dir to change the destination and src directories.
+  */
   const defaultSrc = './src/lib';
-  const defaultDest = './src/routes/props/';
+  const defaultDest = './src/routes/component-data/';
   const exportLet = 'export let';
 
   // Create the defaultDest directory if it doesn't exist
@@ -167,8 +171,8 @@ async function createProps() {
 
   // set lib directory value
   const srcLib = srcValue || defaultSrc;
-
-  const getLines = (fileName, keyword) => {
+    
+  const getExports = (fileName, keyword) => {
     let outputs = [];
     const file = fs.readFileSync(fileName, { encoding: 'utf-8' });
 
@@ -213,7 +217,7 @@ async function createProps() {
     return all;
   }
 
-  function extractProps(arr) {
+  const extractProps = (arr) => {
     let obj = {};
     let result = [];
 
@@ -302,7 +306,7 @@ async function createProps() {
           value = value.slice(0, -1).trim();
         }
 
-        console.log(`Name: ${name}, Type: ${type}, Value: ${value}`);
+        // console.log(`Name: ${name}, Type: ${type}, Value: ${value}`);
         // Add the extracted name, type, and value to the result array
         result.push([name, type, value]);
       }
@@ -313,6 +317,27 @@ async function createProps() {
 
     return obj;
   }
+
+  // Function to extract slot names from a Svelte file
+  const extractSlots = (filePath) => {
+    const content = fs.readFileSync(filePath, 'utf8');
+    const regex = /<slot name=["']([^"']+)["'][^>]*>/g;
+    const slots = [];
+    
+    let match;
+    while ((match = regex.exec(content))) {
+      slots.push(match[1]);
+    }
+    
+    return slots;
+  }
+
+  const extractEvents = (filePath) => {
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const regex = /on:[a-zA-Z_]\w*/g;
+    const matches = fileContent.match(regex) || [];
+    return matches;
+  };
 
   const writeToFile = (fileName, data) => {
     fs.writeFile(fileName, data, (err) => {
@@ -336,20 +361,36 @@ async function createProps() {
   const allFiles = await createFilenames();
   // console.log( allFiles)
   allFiles.forEach((myfile) => {
+    let slotsResult = []; 
+    let eventsResult = []; 
+    let propsResult = []; 
+
     // create a file name
     let name = path.parse(myfile).name;
     let outputfile = directory + name + '.json';
     // console.log('name: ', name)
-    let result = getLines(myfile, exportLet);
-    // console.log('result: ', result)
-    if (result.length > 0) {
-      // console.log('result: ', result)
-      let resultItem = extractProps(result);
-      // console.log('resultItem: ', resultItem)
-      writeToFile(outputfile, JSON.stringify(resultItem));
+    console.log('file name: ', myfile,)
+    slotsResult = extractSlots(myfile);
+    console.log('slotsResult: ', slotsResult);
+    // events
+    eventsResult = extractEvents(myfile);
+    console.log('events: ', eventsResult);
+    // props
+    propsResult = extractProps(getExports(myfile, exportLet));
+    console.log('props: ', propsResult)
+    
+    const data = {
+      slots: slotsResult,
+      events: eventsResult,
+      props: propsResult,
     }
+    writeToFile(outputfile, JSON.stringify(data));
   });
 }
+
+// create slot json file
+// create forwarded events json file
+
 
 
 
@@ -359,8 +400,8 @@ if (command === "docs") {
   exportSvelteComponents(distDir, packageJsonPath);
 } else if (command === "package") {
   copyPackageToDist(distDir, packageJsonPath);
-} else if (command === "props") {
-  createProps();
+} else if (command === "compo-data") {
+  generateComponentData();
 } else {
   console.log("Unknown command. Available commands: docs, exports");
 }

@@ -1,6 +1,6 @@
 {
   "name": "svelte-lib-helpers",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "description": "A utility package for Svelte libraries.",
   "type": "module",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "add-exports": "./index.js exports",
     "add-docs": "./index.js docs",
     "add-package": "./index.js package",
-    "add-props": "./index.js props"
+    "add-data": "./index.js compo-data"
   },
   "repository": {
     "type": "git",
