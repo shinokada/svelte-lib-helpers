@@ -371,14 +371,14 @@ async function generateComponentData () {
     // console.log('name: ', name)
     console.log('file name: ', myfile,)
     slotsResult = extractSlots(myfile);
-    console.log('slotsResult: ', slotsResult);
+    // console.log('slotsResult: ', slotsResult);
     // events
     eventsResult = extractEvents(myfile);
-    console.log('events: ', eventsResult);
+    // console.log('events: ', eventsResult);
     // props
     propsResult = extractProps(getExports(myfile, exportLet));
-    console.log('props: ', propsResult)
-    
+    // console.log('props: ', propsResult)
+
     const data = {
       slots: slotsResult,
       events: eventsResult,
@@ -387,12 +387,6 @@ async function generateComponentData () {
     writeToFile(outputfile, JSON.stringify(data));
   });
 }
-
-// create slot json file
-// create forwarded events json file
-
-
-
 
 if (command === "docs") {
   addCompoDocs(srcDir);

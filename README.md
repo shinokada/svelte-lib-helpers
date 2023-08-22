@@ -31,9 +31,9 @@ You need to set "homepage" value in your `package.json` file.
 
 Copies your project's package.json to the dist directory, allowing for seamless distribution of your library.
 
-**props**
+**compo-data**
 
-Generates JSON files containing prop information from all Svelte files in the src/lib directory, placing them in the routes/props directory.
+Generates JSON files containing props, slots, events information from all Svelte files in the src/lib directory, placing them in the routes/component-data directory.
 
 ## Example Usage
 
@@ -42,15 +42,22 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
 ```json
 "scripts": {
   // ...
-    "add-exports": "svelte-lib-helpers exports",
-    "add-docs": "svelte-lib-helpers docs",
-    "gen-props": "svelte-lib-helpers props",
-    "copy-package": "svelte-lib-helpers package",
-    "lib-helpers": "npm run add-docs && npm run gen-props && npm run build && npm run add-exports && npm run copy-package",
+    "gen:exports": "svelte-lib-helpers exports",
+    "gen:docs": "svelte-lib-helpers docs",
+    "gen:compo-data": "svelte-lib-helpers compo-data",
+    "copy:package": "svelte-lib-helpers package",
+    "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run build && npm run gen:exports && npm run copy:package",
     "package:publish": "standard-version && git push --follow-tags origin main && npm run lib-helpers && npm publish",
   // ...
 }
 ```
+
+### Description
+
+- "gen:exports": "Generate and update exports for efficient imports",
+- "gen:docs": "Generate component documentation",
+- "gen:compo-data": "Generate JSON files with component information",
+- "copy:package": "Copy package.json to the dist directory"
 
 Feel free to adjust these scripts according to your project's needs, incorporating Svelte Lib Helpers to enhance your library development experience.
 
