@@ -379,9 +379,10 @@ async function generateComponentData () {
 
     // create a file name
     let name = path.parse(myfile).name;
+    // console.log('file name: ', name)
     let outputfile = directory + name + '.json';
     // console.log('name: ', name)
-    console.log('file name: ', myfile,)
+    // console.log('myfile: ', myfile,)
     slotsResult = extractSlots(myfile);
     // console.log('slotsResult: ', slotsResult);
     // events
@@ -392,6 +393,7 @@ async function generateComponentData () {
     // console.log('props: ', propsResult)
 
     const data = {
+      name,
       slots: slotsResult,
       events: eventsResult,
       props: propsResult,

@@ -31,5 +31,6 @@
   "bugs": {
     "url": "https://github.com/shinokada/svelte-lib-helpers/issues"
   },
-  "homepage": "https://github.com/shinokada/svelte-lib-helpers#readme"
+  "homepage": "https://github.com/shinokada/svelte-lib-helpers#readme",
+  "exports": {}
 }
