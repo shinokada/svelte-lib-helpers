@@ -96,7 +96,7 @@ export const exportSvelteComponents = (dir, packageJsonPath) => {
         processDirectory(componentPath, componentRelativePath);
       } else if (stat.isFile() && componentName.endsWith('.svelte')) {
         const dtsFile = `${componentName}.d.ts`;
-        const exportKey = path.join(relativePath, componentName);
+        const exportKey = `./${path.join(relativePath, componentName)}`; // Add the ./ prefix
 
         componentExports[exportKey] = {
           types: `./dist/${path.join(relativePath, dtsFile)}`,
@@ -117,6 +117,7 @@ export const exportSvelteComponents = (dir, packageJsonPath) => {
 
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 };
+
 
 // end export to package.json
 
