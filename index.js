@@ -75,6 +75,13 @@ const getDocumentationURL = (packageJsonPath) => {
 export const exportSvelteComponents = (dir, packageJsonPath) => {
   console.log('Adding Svelte components to package.json');
   
+  const customEntry = {
+    '.': {
+      types: './dist/index.d.ts',
+      svelte: './dist/index.js'
+    }
+  };
+
   const componentExports = {};
 
   const processDirectory = (currentDir, relativePath = '') => {
@@ -102,10 +109,15 @@ export const exportSvelteComponents = (dir, packageJsonPath) => {
   processDirectory(dir);
 
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-  packageJson.exports = componentExports;
+
+  // Merge custom entry with componentExports
+  const updatedExports = { ...customEntry, ...componentExports };
+
+  packageJson.exports = updatedExports;
 
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 };
+
 // end export to package.json
 
 // copy package.json to 
