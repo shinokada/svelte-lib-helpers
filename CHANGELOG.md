@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.6](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.5...v0.3.6) (2023-08-28)
+
+
+### Features
+
+* exportSvelteComponents works for dir and subdirs ([ca5fbde](https://github.com/shinokada/svelte-lib-helpers/commit/ca5fbde528e1f6b49ff6cdb2a032b203186977c1))
+
 ### [0.3.5](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.4...v0.3.5) (2023-08-24)
 
 
