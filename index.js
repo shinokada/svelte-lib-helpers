@@ -72,38 +72,34 @@ const getDocumentationURL = (packageJsonPath) => {
 // end of component docs
 
 // add export to package.json
-export const exportSvelteComponents = (distDir, packageJsonPath) => {
+export const exportSvelteComponents = (dir, packageJsonPath) => {
   console.log('Adding Svelte components to package.json');
-  const componentNames = fs.readdirSync(distDir);
+  
   const componentExports = {};
 
-  for (const componentName of componentNames) {
-    const componentDir = path.join(distDir, componentName);
-    if (!fs.existsSync(componentDir) || !fs.lstatSync(componentDir).isDirectory()) {
-      continue;
+  const processDirectory = (currentDir, relativePath = '') => {
+    const componentNames = fs.readdirSync(currentDir);
+
+    for (const componentName of componentNames) {
+      const componentPath = path.join(currentDir, componentName);
+      const stat = fs.lstatSync(componentPath);
+
+      if (stat.isDirectory()) {
+        const componentRelativePath = path.join(relativePath, componentName);
+        processDirectory(componentPath, componentRelativePath);
+      } else if (stat.isFile() && componentName.endsWith('.svelte')) {
+        const dtsFile = `${componentName}.d.ts`;
+        const exportKey = path.join(relativePath, componentName);
+
+        componentExports[exportKey] = {
+          types: `./dist/${path.join(relativePath, dtsFile)}`,
+          svelte: `./dist/${path.join(relativePath, componentName)}`,
+        };
+      }
     }
-    const componentFiles = fs.readdirSync(componentDir);
+  };
 
-    const svelteFiles = componentFiles.filter((file) => file.endsWith('.svelte'));
-
-    for (const svelteFile of svelteFiles) {
-      const dtsFile = `${svelteFile}.d.ts`;
-      const exportKey = `./${svelteFile}`;
-
-      componentExports[exportKey] = {
-        types: `./dist/${componentName}/${dtsFile}`,
-        svelte: `./dist/${componentName}/${svelteFile}`,
-      };
-    }
-  }
-
-  const indexDtsPath = path.join(distDir, 'index.d.ts');
-  if (fs.existsSync(indexDtsPath) && fs.lstatSync(indexDtsPath).isFile()) {
-    componentExports['.'] = {
-      types: './dist/index.d.ts',
-      svelte: './dist/index.js',
-    };
-  }
+  processDirectory(dir);
 
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
   packageJson.exports = componentExports;
