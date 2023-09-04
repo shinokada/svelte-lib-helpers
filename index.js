@@ -71,24 +71,24 @@ const getDocumentationURL = (packageJsonPath) => {
 };
 // end of component docs
 
-// add export to package.json
+
 export const exportSvelteComponents = (dir, packageJsonPath) => {
   console.log('Adding Svelte components to package.json');
-  
+
   const customEntry = {
     '.': {
       types: './dist/index.d.ts',
-      svelte: './dist/index.js'
-    }
+      svelte: './dist/index.js',
+    },
   };
 
   const componentExports = {};
 
-  const processDirectory = (currentDir, relativePath = '') => {
-    const componentNames = fs.readdirSync(currentDir);
+  const processDirectory = (srcDir, relativePath = '') => {
+    const componentNames = fs.readdirSync(srcDir);
 
     for (const componentName of componentNames) {
-      const componentPath = path.join(currentDir, componentName);
+      const componentPath = path.join(srcDir, componentName);
       const stat = fs.lstatSync(componentPath);
 
       if (stat.isDirectory()) {
@@ -96,7 +96,7 @@ export const exportSvelteComponents = (dir, packageJsonPath) => {
         processDirectory(componentPath, componentRelativePath);
       } else if (stat.isFile() && componentName.endsWith('.svelte')) {
         const dtsFile = `${componentName}.d.ts`;
-        const exportKey = `./${path.join(relativePath, componentName)}`; // Add the ./ prefix
+        const exportKey = `./${path.basename(componentName)}`;
 
         componentExports[exportKey] = {
           types: `./dist/${path.join(relativePath, dtsFile)}`,
@@ -106,19 +106,20 @@ export const exportSvelteComponents = (dir, packageJsonPath) => {
     }
   };
 
-  processDirectory(dir);
+  processDirectory(srcDir);
 
+  // Read the existing package.json
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
 
+  // Remove the old "exports" field if it exists
+  delete packageJson.exports;
+
   // Merge custom entry with componentExports
-  const updatedExports = { ...customEntry, ...componentExports };
+  packageJson.exports = { ...customEntry, ...componentExports };
 
-  packageJson.exports = updatedExports;
-
+  // Write the updated package.json back to the file
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 };
-
-
 // end export to package.json
 
 // copy package.json to 

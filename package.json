@@ -32,5 +32,50 @@
     "url": "https://github.com/shinokada/svelte-lib-helpers/issues"
   },
   "homepage": "https://github.com/shinokada/svelte-lib-helpers#readme",
-  "exports": {}
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    },
+    "./Accordion.svelte": {
+      "types": "./dist/accordion/Accordion.svelte.d.ts",
+      "svelte": "./dist/accordion/Accordion.svelte"
+    },
+    "./AccordionItem.svelte": {
+      "types": "./dist/accordion/AccordionItem.svelte.d.ts",
+      "svelte": "./dist/accordion/AccordionItem.svelte"
+    },
+    "./Alert.svelte": {
+      "types": "./dist/alerts/Alert.svelte.d.ts",
+      "svelte": "./dist/alerts/Alert.svelte"
+    },
+    "./Avatar.svelte": {
+      "types": "./dist/avatar/Avatar.svelte.d.ts",
+      "svelte": "./dist/avatar/Avatar.svelte"
+    },
+    "./Placeholder.svelte": {
+      "types": "./dist/avatar/Placeholder.svelte.d.ts",
+      "svelte": "./dist/avatar/Placeholder.svelte"
+    },
+    "./Button.svelte": {
+      "types": "./dist/buttons/Button.svelte.d.ts",
+      "svelte": "./dist/buttons/Button.svelte"
+    },
+    "./Card.svelte": {
+      "types": "./dist/cards/Card.svelte.d.ts",
+      "svelte": "./dist/cards/Card.svelte"
+    },
+    "./file1.svelte": {
+      "types": "./dist/file1.svelte.d.ts",
+      "svelte": "./dist/file1.svelte"
+    },
+    "./file2.svelte": {
+      "types": "./dist/file2.svelte.d.ts",
+      "svelte": "./dist/file2.svelte"
+    },
+    "./file3.svelte": {
+      "types": "./dist/file3.svelte.d.ts",
+      "svelte": "./dist/file3.svelte"
+    }
+  }
 }
