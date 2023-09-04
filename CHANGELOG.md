@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.9](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.8...v0.3.9) (2023-09-04)
+
+
+### Bug Fixes
+
+* exportSvelteComponents ([85dc5dd](https://github.com/shinokada/svelte-lib-helpers/commit/85dc5dd4216a3ed6de9312fb652e768f2a18a285))
+
 ### [0.3.8](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.7...v0.3.8) (2023-08-28)
 
 
