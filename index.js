@@ -414,7 +414,7 @@ async function generateComponentData () {
 }
 
 // this function add export * from './types.d.ts'; at the end of './dist/index.
-// d.ts' and './ dist / index.js' files;
+// d.ts' and './ dist / index.js' files.
 export function addDTstoIndex() {
   const stringToAppend = "export * from './types.d.ts'";
   const indexFiles = ['./dist/index.d.ts', './dist/index.js'];
@@ -462,10 +462,6 @@ export function addDTstoIndex() {
   });
 }
 
-
-
-
-
 if (command === "docs") {
   addCompoDocs(srcDir);
 } else if (command === "exports") {
@@ -474,7 +470,7 @@ if (command === "docs") {
   copyPackageToDist(distDir, packageJsonPath);
 } else if (command === "compo-data") {
   generateComponentData();
-} else if (command === "tsToindex") {
+} else if (command === "exportTs") {
   addDTstoIndex();
 } else {
   console.log("Unknown command. Available commands: docs, exports");

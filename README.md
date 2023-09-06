@@ -35,6 +35,11 @@ Copies your project's package.json to the dist directory, allowing for seamless 
 
 Generates JSON files containing props, slots, events information from all Svelte files in the src/lib directory, placing them in the routes/component-data directory.
 
+**exportTs**
+
+This command adds `export * from './types.d.ts';` at the end of './dist/index.
+ d.ts' and './ dist / index.js' files.
+
 ## Example Usage
 
 Below is an example of how you can integrate Svelte Lib Helpers subcommands into the scripts section of your package.json file within a SvelteKit project:
