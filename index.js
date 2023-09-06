@@ -413,54 +413,59 @@ async function generateComponentData () {
   });
 }
 
-// this function add export * from './types.d.ts'; at the end of './dist/index.
-// d.ts' and './ dist / index.js' files.
-export function addDTstoIndex() {
-  const stringToAppend = "export * from './types.d.ts'";
+// add export * from './types.js' to the ./dist/index.d.ts file and export * from './types.d.ts' to the ./dist/index.js file
+
+
+export function addTypes() {
+  const typesToAppend = ["export * from './types.js';", "export * from './types.d.ts';"];
   const indexFiles = ['./dist/index.d.ts', './dist/index.js'];
 
-  indexFiles.forEach((file) => {
+  indexFiles.forEach((file, index) => {
     fs.readFile(file, 'utf8', (err, data) => {
       if (err) {
         console.error(`Error reading file ${file}: ${err}`);
         return;
       }
 
-      // Remove all occurrences of 'export * from './types.d.ts';'
-      const modifiedData = data.replace(/export \* from '.\/types\.d\.ts';\n/g, '');
+      // Remove all occurrences of typesToAppend from the data
+      typesToAppend.forEach((type) => {
+        data = data.replace(type, '');
+      });
 
       // Find the index of the last export statement
       let lastIndex = -1;
-      const exportStatements = modifiedData.match(/export .*;/g);
+      const exportStatements = data.match(/export .*;/g);
       if (exportStatements) {
         lastIndex = exportStatements.length - 1;
       }
 
-      // Insert the stringToAppend on a new line after the last export statement
+      // Append the typesToAppend on a new line after the last export statement
       if (lastIndex !== -1) {
-        const insertIndex = modifiedData.lastIndexOf(exportStatements[lastIndex]) + exportStatements[lastIndex].length;
-        const combinedData = modifiedData.slice(0, insertIndex) + '\n' + stringToAppend + ';\n' + modifiedData.slice(insertIndex);
+        const lastExportStatement = exportStatements[lastIndex];
+        const insertIndex = data.lastIndexOf(lastExportStatement) + lastExportStatement.length;
+        const combinedData = data.slice(0, insertIndex) + '\n' + typesToAppend[index] + '\n' + data.slice(insertIndex);
         fs.writeFile(file, combinedData, 'utf8', (err) => {
           if (err) {
             console.error(`Error writing to file ${file}: ${err}`);
           } else {
-            console.log(`Added ${stringToAppend} to ${file}`);
+            console.log(`Added ${typesToAppend[index]} to ${file}`);
           }
         });
       } else {
-        // If no export statement is found, just append the stringToAppend at the end
-        const finalModifiedData = modifiedData + '\n' + stringToAppend + ';';
+        // If no export statement is found, just append the typesToAppend at the end on a new line
+        const finalModifiedData = data + (data.trim() === '' ? '' : '\n') + typesToAppend[index];
         fs.writeFile(file, finalModifiedData, 'utf8', (err) => {
           if (err) {
             console.error(`Error writing to file ${file}: ${err}`);
           } else {
-            console.log(`Added ${stringToAppend} to ${file}`);
+            console.log(`Added ${typesToAppend[index]} to ${file}`);
           }
         });
       }
     });
   });
 }
+
 
 if (command === "docs") {
   addCompoDocs(srcDir);
@@ -470,8 +475,8 @@ if (command === "docs") {
   copyPackageToDist(distDir, packageJsonPath);
 } else if (command === "compo-data") {
   generateComponentData();
-} else if (command === "exportTs") {
-  addDTstoIndex();
+} else if (command === "addTypes") {
+  addTypes();
 } else {
   console.log("Unknown command. Available commands: docs, exports");
 }

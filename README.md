@@ -51,7 +51,8 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
     "gen:docs": "svelte-lib-helpers docs",
     "gen:compo-data": "svelte-lib-helpers compo-data",
     "copy:package": "svelte-lib-helpers package",
-    "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run build && npm run gen:exports && npm run copy:package",
+    "gen:export-ts": "svelte-lib-helpers exportTs",
+    "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run build && npm run gen:exports && npm run copy:package && npm run gen:export-ts",
     "package:publish": "standard-version && git push --follow-tags origin main && npm run lib-helpers && npm publish"
 }
 ```
