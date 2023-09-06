@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.11](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.10...v0.3.11) (2023-09-06)
+
+
+### Features
+
+* update extractEvents not to pick up events with = sign ([43bb227](https://github.com/shinokada/svelte-lib-helpers/commit/43bb2274624c846e82ca6214156f68f1593ad3ac))
+
 ### [0.3.10](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.9...v0.3.10) (2023-09-04)
 
 ### [0.3.9](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.8...v0.3.9) (2023-09-04)
