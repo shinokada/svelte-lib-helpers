@@ -13,7 +13,7 @@
     "gen:compo-data": "node ./index.js compo-data",
     "copy:package": "node ./index.js package",
     "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run gen:exports && npm run copy:package",
-    "package:publish": "standard-version && git push --follow-tags origin main && npm run lib-helpers && npm publish"
+    "package:publish": "standard-version && git push --follow-tags origin main && npm publish"
   },
   "repository": {
     "type": "git",
