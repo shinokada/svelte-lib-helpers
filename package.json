@@ -10,6 +10,7 @@
   "scripts": {
     "gen:exports": "node ./index.js exports",
     "gen:docs": "node ./index.js docs",
+    "gen:docs5": "node ./index.js docs5",
     "gen:compo-data": "node ./index.js compo-data",
     "copy:package": "node ./index.js package",
     "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run gen:exports && npm run copy:package",
