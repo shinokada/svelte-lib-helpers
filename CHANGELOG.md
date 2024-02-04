@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.16](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.15...v0.3.16) (2024-02-04)
+
+
+### Features
+
+* add svelte 5 docs ([7ee70fd](https://github.com/shinokada/svelte-lib-helpers/commit/7ee70fd50cbdfcede86cc41722e23ff025ba1751))
+
+
+### Bug Fixes
+
+* remove exports from package ([b70a319](https://github.com/shinokada/svelte-lib-helpers/commit/b70a319c6cfc570165a84ae8292fbac3ba58b809))
+
 ### [0.3.15](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.14...v0.3.15) (2023-09-07)
 
 ### [0.3.14](https://github.com/shinokada/svelte-lib-helpers/compare/v0.3.13...v0.3.14) (2023-09-07)
