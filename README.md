@@ -29,7 +29,54 @@ You need to set "homepage" value in your `package.json` file.
 
 **Svelte 5**
 
-The script extracts props from the content of `let { myprops, anotherprops } = $props` and creates component docs.
+There are two sub-commands for Svelte 5:
+
+Use `docs5` sub-command to extracts props from the content of `let { myprops, anotherprops } = $props` and creates component docs.
+
+Use `docs5FromType` sub-command to extract props and default values if you have `interface Props`:
+
+```
+interface Props {
+    children: any;
+    drawerStatus: boolean;
+    toggleDrawer?: () => void;
+    position?: 'fixed' | 'absolute';
+    leftOffset?: string | undefined;
+    width?: string;
+    placement?: 'left' | 'right' | 'top' | 'bottom';
+    transitionParams: drawerTransitionParamTypes;
+  }
+
+  let {
+    children,
+    drawerStatus,
+    toggleDrawer,
+    position = 'fixed',
+    leftOffset = 'inset-y-0 start-0',
+    width = 'w-80',
+    placement = 'left',
+    transitionParams,
+    ...attributes
+  } = $props<Props>();
+```
+
+The above code will produce the following component docs:
+
+```
+<!--
+@component
+[Go to docs](https://github.com/shinokada/svelte-lib-helpers)
+## Props
+@props: children: any;
+@props:drawerStatus: boolean;
+@props:toggleDrawer?: () => void;
+@props:position?:  'fixed' | 'absolute'; = 'fixed';
+@props:leftOffset?:  string | undefined; = 'inset-y-0 start-0';
+@props:width?:  string; = 'w-80';
+@props:placement?:  'left' | 'right' | 'top' | 'bottom'; = 'left';
+@props:transitionParams: drawerTransitionParamTypes;
+-->
+```
 
 **Svelte 4**
 
@@ -53,6 +100,7 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
     "gen:exports": "svelte-lib-helpers exports",
     "gen:docs": "svelte-lib-helpers docs",
     "gen:docs5": "svelte-lib-helpers docs5",
+    "gen:docs5FromType": "svelte-lib-helpers docs5FromType",
     "gen:compo-data": "svelte-lib-helpers compo-data",
     "copy:package": "svelte-lib-helpers package",
     "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run build && npm run gen:exports && npm run copy:package",
@@ -65,6 +113,7 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
 - "gen:exports": "Generate and update exports for efficient imports",
 - "gen:docs": "Generate component documentation for Svelte 4",
 - "gen:docs5": "Generate component documentation for Svelte 5",
+- "gen:docs5FromType": "Generate component documentation for Svelte 5 from interface Props",
 - "gen:compo-data": "Generate JSON files with component information",
 - "copy:package": "Copy package.json to the dist directory"
 

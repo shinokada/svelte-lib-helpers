@@ -11,8 +11,10 @@
     "gen:exports": "node ./index.js exports",
     "gen:docs": "node ./index.js docs",
     "gen:docs5": "node ./index.js docs5",
+    "gen:docs5FromType": "node ./index.js docs5FromType",
     "gen:compo-data": "node ./index.js compo-data",
     "copy:package": "node ./index.js package",
+    "removeDocs": "node ./index.js removeDocs",
     "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run gen:exports && npm run copy:package",
     "package:publish": "standard-version && git push --follow-tags origin main && npm publish"
   },
@@ -32,5 +34,12 @@
   "bugs": {
     "url": "https://github.com/shinokada/svelte-lib-helpers/issues"
   },
-  "homepage": "https://github.com/shinokada/svelte-lib-helpers#readme"
+  "homepage": "https://github.com/shinokada/svelte-lib-helpers#readme",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@svitejs/changesets-changelog-github-compact": "^1.1.0"
+  }
 }

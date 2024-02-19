@@ -1,4 +1,3 @@
-
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
   import { createEventDispatcher, type ComponentProps } from 'svelte';
@@ -58,6 +57,5 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop export let dismissable: boolean = false;
-@prop export let defaultClass: string = 'p-4 gap-3 text-sm';
+@props: 
 -->
