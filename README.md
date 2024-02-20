@@ -78,6 +78,14 @@ The above code will produce the following component docs:
 -->
 ```
 
+- Limitation
+
+This lib is not able to handle types with vertical format. Please set a larger `printWidth` in `.prettierrc` file:
+
+```
+"printWidth": 150,
+```
+
 **Svelte 4**
 
 The script extract props from `export let myprops` and creates component docs.
