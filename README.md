@@ -7,7 +7,7 @@ Svelte Lib Helpers is a utility package designed to streamline various tasks whe
 Install Svelte Lib Helpers as a development dependency using npm/pnpm/yarn/bun:
 
 ```sh
-npm i -D svelte-lib-helpers
+pnpm i -D svelte-lib-helpers
 ```
 
 ## Sub commands
