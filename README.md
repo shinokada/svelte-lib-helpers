@@ -2,6 +2,10 @@
 
 Svelte Lib Helpers is a utility package designed to streamline various tasks when developing Svelte libraries. It offers a set of subcommands that simplify the process of managing exports, documentation, package distribution, and more.
 
+## Repo
+
+[Svelte-lib-helpers](https://github.com/shinokada/svelte-lib-helpers)
+
 ## Installation
 
 Install Svelte Lib Helpers as a development dependency using npm/pnpm/yarn/bun:
