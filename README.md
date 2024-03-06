@@ -84,7 +84,7 @@ The above code will produce the following component docs:
 
 - Limitation
 
-This lib is not able to handle types with long line. Please do not set a  `printWidth` in `.prettierrc` file.
+This lib is not able to handle types with long line. If you are setting the `printWidth` in `.prettierrc` file, set it with a proper value.
 
 Format your code before running `svelte-lib-helpers`.
 
