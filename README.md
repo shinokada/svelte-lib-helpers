@@ -2,6 +2,10 @@
 
 Svelte Lib Helpers is a utility package designed to streamline various tasks when developing Svelte libraries. It offers a set of subcommands that simplify the process of managing exports, documentation, package distribution, and more.
 
+## Repo
+
+[Svelte-lib-helpers](https://github.com/shinokada/svelte-lib-helpers)
+
 ## Installation
 
 Install Svelte Lib Helpers as a development dependency using npm/pnpm/yarn/bun:
@@ -80,7 +84,7 @@ The above code will produce the following component docs:
 
 - Limitation
 
-This lib is not able to handle types with vertical format. Please set a larger `printWidth` in `.prettierrc` file:
+This lib is not able to handle types with long line. Please set a larger `printWidth` in `.prettierrc` file and format your code:
 
 ```
 "printWidth": 150,
@@ -111,8 +115,8 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
     "gen:docs5FromType": "svelte-lib-helpers docs5FromType",
     "gen:compo-data": "svelte-lib-helpers compo-data",
     "copy:package": "svelte-lib-helpers package",
-    "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run build && npm run gen:exports && npm run copy:package",
-    "package:publish": "standard-version && git push --follow-tags origin main && npm run lib-helpers && npm publish"
+    "lib-helpers": "npm run format && npm run gen:docs && npm run gen:compo-data && npm run package && npm run gen:exports && npm run copy:package",
+    "package:publish": "standard-version && git push --follow-tags origin main && npm publish"
 }
 ```
 

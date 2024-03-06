@@ -1,5 +1,20 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.4.2](https://github.com/shinokada/svelte-lib-helpers/compare/v0.4.1...v0.4.2) (2024-03-06)
+
+
+### Bug Fixes
+
+* update splitPropsInterface function for docs5FromType ([e72c53e](https://github.com/shinokada/svelte-lib-helpers/commit/e72c53ee718b4db55ec8aa10991fd4d68e1bdc2b))
+
+## 0.4.1
+
+### Patch Changes
+
+- fix: add appending package.json to exportSvelteComponents.js ([`81388100b166ca26eeefee7bac46ff282198a615`](https://github.com/shinokada/svelte-lib-helpers/commit/81388100b166ca26eeefee7bac46ff282198a615))
+
 ## 0.4.0
 
 ### Minor Changes
