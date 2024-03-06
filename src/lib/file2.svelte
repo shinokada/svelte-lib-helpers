@@ -2,7 +2,6 @@
   import { twMerge } from 'tailwind-merge';
   import { createEventDispatcher, type ComponentProps } from 'svelte';
 
-
   export let dismissable: boolean = false;
   import CloseButton from '../utils/CloseButton.svelte';
   import Frame from '../utils/Frame.svelte';
@@ -23,7 +22,11 @@
   };
 
   let divClass: string;
-  $: divClass = twMerge(defaultClass, ($$slots.icon || dismissable) && 'flex items-center', $$props.class);
+  $: divClass = twMerge(
+    defaultClass,
+    ($$slots.icon || dismissable) && 'flex items-center',
+    $$props.class
+  );
 
   $: {
     // set default values
@@ -47,7 +50,19 @@
 
     {#if dismissable}
       <slot name="close-button" {close}>
-        <CloseButton class="-my-1.5 dark:hover:bg-gray-700" color={$$restProps.color} on:click={close} on:click on:change on:keydown on:keyup on:focus on:blur on:mouseenter on:mouseleave />
+        <CloseButton
+          class="-my-1.5 dark:hover:bg-gray-700"
+          color={$$restProps.color}
+          on:click={close}
+          on:click
+          on:change
+          on:keydown
+          on:keyup
+          on:focus
+          on:blur
+          on:mouseenter
+          on:mouseleave
+        />
       </slot>
     {/if}
   </Frame>

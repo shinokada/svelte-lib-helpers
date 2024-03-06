@@ -111,6 +111,7 @@
   {...attributes}
   class={btnCls}
 >
+
   {@render children()}
   <span class={spanCls}>{btnName}</span>
 </svelte:element>
