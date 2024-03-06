@@ -1,6 +1,6 @@
 {
   "name": "svelte-lib-helpers",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A utility package for Svelte libraries.",
   "type": "module",
   "main": "index.js",
@@ -8,6 +8,8 @@
     "svelte-lib-helpers": "index.js"
   },
   "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write 'src/lib/**/*.{js,ts,svelte}'",
     "gen:exports": "node ./index.js exports",
     "gen:docs": "node ./index.js docs",
     "gen:docs5": "node ./index.js docs5",
@@ -40,6 +42,14 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "@svitejs/changesets-changelog-github-compact": "^1.1.0"
+    "@svitejs/changesets-changelog-github-compact": "^1.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.35.1",
+    "prettier": "^3.2.5",
+    "prettier-plugin-svelte": "^3.2.2",
+    "prettier-plugin-tailwindcss": "^0.5.12"
   }
 }
