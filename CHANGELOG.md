@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1
+
+### Patch Changes
+
+- fix: add appending package.json to exportSvelteComponents.js ([`81388100b166ca26eeefee7bac46ff282198a615`](https://github.com/shinokada/svelte-lib-helpers/commit/81388100b166ca26eeefee7bac46ff282198a615))
+
 ## 0.4.0
 
 ### Minor Changes
