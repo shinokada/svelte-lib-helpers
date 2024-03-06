@@ -72,12 +72,12 @@
 
 <div {...attributes} class={outerCls}>
   {#if header}
-  
+  <!-- prettier-ignore-start -->
     {@render header()}
   {/if}
   <div class={innerCls}>
-    
     {@render children()}
+    <!-- prettier-ignore-end -->
   </div>
 </div>
 

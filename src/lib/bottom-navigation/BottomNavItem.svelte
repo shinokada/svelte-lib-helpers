@@ -111,8 +111,9 @@
   {...attributes}
   class={btnCls}
 >
-
+<!-- prettier-ignore-start -->
   {@render children()}
+  <!-- prettier-ignore-end -->
   <span class={spanCls}>{btnName}</span>
 </svelte:element>
 

@@ -92,7 +92,9 @@
     <div role="presentation" class="fixed start-0 top-0 z-50 h-full w-full" />
   {/if}
   <div {...attributes} class={divCls} transition:multiple={transitionParams} tabindex="-1">
+    <!-- prettier-ignore-start -->
     {@render children()}
+    <!-- prettier-ignore-end -->
   </div>
 {/if}
 

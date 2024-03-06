@@ -9,7 +9,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "format": "prettier --write 'src/lib/**/*.{js,ts,svelte}'",
+    "format": "prettier --write 'src/**/*.{js,ts,svelte}'",
     "gen:exports": "node ./index.js exports",
     "gen:docs": "node ./index.js docs",
     "gen:docs5": "node ./index.js docs5",
