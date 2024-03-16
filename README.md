@@ -63,7 +63,7 @@ interface Props {
     placement = 'left',
     transitionParams,
     ...attributes
-  } = $props<Props>();
+  }: Props = $props();
 ```
 
 The above code will produce the following component docs:

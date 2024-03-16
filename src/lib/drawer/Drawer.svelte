@@ -1,7 +1,11 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte';
   import type { drawerTransitionParamTypes, drawerTransitionTypes } from '../types';
+  import { twMerge } from 'tailwind-merge';
+  import { fly, slide, blur, fade } from 'svelte/transition';
+
   interface Props {
-    children: any;
+    children?: Snippet;
     drawerStatus: boolean;
     toggleDrawer?: () => void;
     closeDrawer?: () => void;
@@ -20,10 +24,6 @@
     transitionParams: drawerTransitionParamTypes;
     transitionType?: drawerTransitionTypes;
   }
-
-  import { twMerge } from 'tailwind-merge';
-  import { fly, slide, blur, fade } from 'svelte/transition';
-  // import { clickOutside } from '$lib';
 
   let {
     children,
@@ -45,7 +45,7 @@
     transitionParams,
     transitionType = 'fly',
     ...attributes
-  } = $props<Props>();
+  }: Props = $props();
 
   function multiple(node: HTMLElement, params: any) {
     switch (transitionType) {
@@ -67,18 +67,8 @@
     bottom: bottomOffset
   };
 
-  let backdropDivClass = twMerge(
-    'fixed top-0 start-0 z-50 w-full h-full',
-    backdrop && bgColor,
-    backdrop && bgOpacity
-  );
-  let divCls = twMerge(
-    'overflow-y-auto z-50 p-4 bg-white dark:bg-gray-800',
-    width,
-    position,
-    placements[placement],
-    divclass
-  );
+  let backdropDivClass = twMerge('fixed top-0 start-0 z-50 w-full h-full', backdrop && bgColor, backdrop && bgOpacity);
+  let divCls = twMerge('overflow-y-auto z-50 p-4 bg-white dark:bg-gray-800', width, position, placements[placement], divclass);
 </script>
 
 {#if drawerStatus}
@@ -92,9 +82,9 @@
     <div role="presentation" class="fixed start-0 top-0 z-50 h-full w-full" />
   {/if}
   <div {...attributes} class={divCls} transition:multiple={transitionParams} tabindex="-1">
-    <!-- prettier-ignore-start -->
-    {@render children()}
-    <!-- prettier-ignore-end -->
+    {#if children}
+      {@render children()}
+    {/if}
   </div>
 {/if}
 
@@ -102,7 +92,7 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@props: children: any;
+@props: children?: Snippet;
 @props:drawerStatus: boolean;
 @props:toggleDrawer?: () => void;
 @props:closeDrawer?: () => void;
