@@ -1,13 +1,18 @@
 # Changelog
 
+## 0.4.4
+
+### Patch Changes
+
+- fix: default falue for addCompoDocs5fromType ([`9c54a81f14e53d2bef62078e960b2ee913a14c92`](https://github.com/shinokada/svelte-lib-helpers/commit/9c54a81f14e53d2bef62078e960b2ee913a14c92))
+
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ### [0.4.2](https://github.com/shinokada/svelte-lib-helpers/compare/v0.4.1...v0.4.2) (2024-03-06)
 
-
 ### Bug Fixes
 
-* update splitPropsInterface function for docs5FromType ([e72c53e](https://github.com/shinokada/svelte-lib-helpers/commit/e72c53ee718b4db55ec8aa10991fd4d68e1bdc2b))
+- update splitPropsInterface function for docs5FromType ([e72c53e](https://github.com/shinokada/svelte-lib-helpers/commit/e72c53ee718b4db55ec8aa10991fd4d68e1bdc2b))
 
 ## 0.4.1
 
