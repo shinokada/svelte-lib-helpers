@@ -25,6 +25,7 @@
     href = '', 
     exact = true, 
     btnclass, 
+    class: classname,
     spanclass, 
     ...attributes 
   }: Props = $props();
@@ -33,12 +34,8 @@
 
   const context = getContext<BottomNavType>('bottomNavType') ?? {};
 
-  // let navUrl = '';
-
   let currentUrl = $state($page.url.pathname);
   let active: boolean = $state(false);
-
-  // let active = navUrl && exact ? href === navUrl : navUrl ? navUrl.startsWith(href) : false;
 
   const btnClasses: ButtonClassesTypes = {
     default: 'inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group',
@@ -90,12 +87,14 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@props: children?: Snippet;
-@props:btnName?: string;
-@props:appBtnPosition?:  'left' | 'middle' | 'right'; = 'middle';
-@props:activeClass?: string;
-@props:href?:  string; = '';
-@props:exact?:  boolean; = true;
-@props:btnclass?: string;
-@props:spanclass?: string;
+@prop children,
+@prop btnName,
+@prop appBtnPosition = 'middle',
+@prop activeClass,
+@prop href = '',
+@prop exact = true,
+@prop btnclass,
+@prop class: classname,
+@prop spanclass,
+@prop ...attributes
 -->

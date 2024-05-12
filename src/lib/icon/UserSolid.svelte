@@ -49,8 +49,10 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@props: size?:  'xs' | 'sm' | 'md' | 'lg' | 'xl'; = ctx.size || 'md', role,  class: classname, ariaLabel;
-@props:role?: string;
-@props:class?: string;
-@props:ariaLabel?: string;
+@prop size = ctx.size || 'md',
+@prop role,
+@prop class: classname,
+@prop ariaLabel = 'user solid,
+@prop ',
+@prop ...restProps
 -->

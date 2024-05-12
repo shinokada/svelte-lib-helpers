@@ -145,21 +145,5 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop export let open: boolean = false;
-@prop export let activeClass: string | undefined = undefined;
-@prop export let inactiveClass: string | undefined = undefined;
-@prop export let defaultClass: string =
-    'flex items-center justify-between w-full font-medium text-left group-first:rounded-t-xl border-gray-200 dark:border-gray-700';
-@prop export let transitionType: TransitionTypes = 'slide';
-@prop export let transitionParams: TransitionParamTypes = {};
-@prop export let paddingFlush: string = 'py-5';
-@prop export let paddingDefault: string = 'p-5';
-@prop export let textFlushOpen: string = 'text-gray-900 dark:text-white';
-@prop export let textFlushDefault: string = 'text-gray-500 dark:text-gray-400';
-@prop export let borderClass: string = 'border-l border-r group-first:border-t';
-@prop export let borderOpenClass: string = 'border-l border-r';
-@prop export let borderBottomClass: string = 'border-b';
-@prop export let borderSharedClass: string = 'border-gray-200 dark:border-gray-700';
-@prop export let classActive: string | undefined = undefined;
-@prop export let classInactive: string | undefined = undefined;
+@props: 
 -->

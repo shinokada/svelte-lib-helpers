@@ -68,12 +68,12 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@props: children?: Snippet;
-@props:header?: Snippet;
-@props:activeUrl?: string;
-@props:position?: 'static' | 'fixed' | 'absolute' | 'relative' | 'sticky';
-@props:navType?: 'default' | 'border' | 'application' | 'pagination' | 'group' | 'card' | 'meeting' | 'video';
-@props:divclass?: string;
-@props:div2class?: string;
-@props:activeClass?: string;
+@prop children,
+@prop header,
+@prop position = 'fixed',
+@prop navType = 'default',
+@prop divclass,
+@prop div2class,
+@prop activeClass,
+@prop ...attributes
 -->
