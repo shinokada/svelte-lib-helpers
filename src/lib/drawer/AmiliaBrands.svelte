@@ -96,16 +96,16 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop size = ctx.size || '24',
-@prop role = ctx.role || 'img',
-@prop color = ctx.color || 'currentColor',
-@prop withEvents = ctx.withEvents || false,
-@prop title,
-@prop desc,
-@prop class: classname,
-@prop ariaLabel =  "amilia brands",
-@prop onclick,
-@prop onkeydown,
-@prop onkeyup,
+@prop size = ctx.size || '24'
+@prop role = ctx.role || 'img'
+@prop color = ctx.color || 'currentColor'
+@prop withEvents = ctx.withEvents || false
+@prop title
+@prop desc
+@prop class: classname
+@prop ariaLabel =  "amilia brands"
+@prop onclick
+@prop onkeydown
+@prop onkeyup
 @prop ...restProps
 -->

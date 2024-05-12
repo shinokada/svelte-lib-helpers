@@ -41,8 +41,8 @@
     variation = ctx.variation || "outline",
     strokeWidth = ctx.strokeWidth || '1.5',
     withEvents = ctx.withEvents || false, 
-    title = {}, 
-    desc = {}, 
+    title, 
+    desc, 
     class: classname, 
     ariaLabel = "arrow down left", 
     onclick, 
@@ -134,3 +134,23 @@
       {/if}
   </svg>
 {/if}
+
+<!--
+@component
+[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
+## Props
+@prop size = ctx.size || '24'
+@prop role = ctx.role || 'img'
+@prop color = ctx.color || 'currentColor'
+@prop variation = ctx.variation || "outline"
+@prop strokeWidth = ctx.strokeWidth || '1.5'
+@prop withEvents = ctx.withEvents || false
+@prop title
+@prop desc
+@prop class: classname
+@prop ariaLabel = "arrow down left"
+@prop onclick
+@prop onkeydown
+@prop onkeyup
+@prop ...restProps
+-->

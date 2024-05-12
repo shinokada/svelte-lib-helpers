@@ -87,14 +87,14 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop children,
-@prop btnName,
-@prop appBtnPosition = 'middle',
-@prop activeClass,
-@prop href = '',
-@prop exact = true,
-@prop btnclass,
-@prop class: classname,
-@prop spanclass,
+@prop children
+@prop btnName
+@prop appBtnPosition = 'middle'
+@prop activeClass
+@prop href = ''
+@prop exact = true
+@prop btnclass
+@prop class: classname
+@prop spanclass
 @prop ...attributes
 -->

@@ -92,23 +92,23 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop children,
-@prop drawerStatus,
-@prop toggleDrawer,
-@prop closeDrawer,
-@prop activateClickOutside = true,
-@prop position = 'fixed',
-@prop leftOffset = 'inset-y-0 start-0',
-@prop rightOffset = 'inset-y-0 end-0',
-@prop topOffset = 'inset-x-0 top-0',
-@prop bottomOffset = 'inset-x-0 bottom-0',
-@prop width = 'w-80',
-@prop backdrop = true,
-@prop bgColor = 'bg-gray-900',
-@prop bgOpacity = 'bg-opacity-75',
-@prop placement = 'left',
-@prop divclass = '',
-@prop transitionParams,
-@prop transitionType = 'fly',
+@prop children
+@prop drawerStatus
+@prop toggleDrawer
+@prop closeDrawer
+@prop activateClickOutside = true
+@prop position = 'fixed'
+@prop leftOffset = 'inset-y-0 start-0'
+@prop rightOffset = 'inset-y-0 end-0'
+@prop topOffset = 'inset-x-0 top-0'
+@prop bottomOffset = 'inset-x-0 bottom-0'
+@prop width = 'w-80'
+@prop backdrop = true
+@prop bgColor = 'bg-gray-900'
+@prop bgOpacity = 'bg-opacity-75'
+@prop placement = 'left'
+@prop divclass = ''
+@prop transitionParams
+@prop transitionType = 'fly'
 @prop ...attributes
 -->
