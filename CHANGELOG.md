@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.6
+
+### Patch Changes
+
+- fix: addCompoDocs5, removing , the end of prop ([`f0a8160d13001c692a25cc90019e384b044557e4`](https://github.com/shinokada/svelte-lib-helpers/commit/f0a8160d13001c692a25cc90019e384b044557e4))
+
 ## 0.4.5
 
 ### Patch Changes
