@@ -37,7 +37,40 @@ You need to set "homepage" value in your `package.json` file.
 
 There are two sub-commands for Svelte 5:
 
-Use `docs5` sub-command to extracts props from the content of `let { myprops, anotherprops } = $props` and creates component docs.
+Use `docs5` sub-command to extracts props from the content of `let { myprops, anotherprops }: Props = $props` and creates component docs. Your type names need to be `Props` or ending with `PropsType`.
+
+```
+let {
+    source,
+    user,
+    repo,
+    interval,
+    packageName,
+    style = 'flat',
+   // more lines
+    ...attributes
+  }: DownloadPropsType = $props();
+```
+
+The above code will produce the following:
+
+```
+
+<!--
+@component
+[Go to docs](https://github.com/shinokada/your-homepage#readme)
+## Props
+@prop source
+@prop user
+@prop repo
+@prop interval
+@prop packageName
+@prop style = 'flat'
+...
+@prop ...attributes
+-->
+
+```
 
 Use `docs5FromType` sub-command to extract props and default values if you have `interface Props`:
 
@@ -89,6 +122,8 @@ The above code will produce the following component docs:
 This lib is not able to handle types with long line. If you are setting the `printWidth` in `.prettierrc` file, set it with a proper value.
 
 Format your code before running `svelte-lib-helpers`.
+
+Having `{}` for a prop value won't work.
 
 **Svelte 4**
 

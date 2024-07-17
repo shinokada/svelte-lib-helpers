@@ -51,6 +51,7 @@
     "eslint-plugin-svelte": "^2.35.1",
     "prettier": "^3.2.5",
     "prettier-plugin-svelte": "^3.2.2",
-    "prettier-plugin-tailwindcss": "^0.5.12"
+    "prettier-plugin-tailwindcss": "^0.5.12",
+    "svelte": "5.0.0-next.184"
   }
 }
