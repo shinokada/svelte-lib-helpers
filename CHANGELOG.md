@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.7
+
+### Patch Changes
+
+- fix: add PropsType to regex for docs5 ([`13769cbc37cd5795da1fef31cacff15d6310d6bb`](https://github.com/shinokada/svelte-lib-helpers/commit/13769cbc37cd5795da1fef31cacff15d6310d6bb))
+
 ## 0.4.6
 
 ### Patch Changes
