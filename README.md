@@ -137,6 +137,8 @@ Copies your project's package.json to the dist directory, allowing for seamless 
 
 Generates JSON files containing props, slots, events information from all Svelte files in the src/lib directory, placing them in the routes/component-data directory.
 
+There are two sub commands, `compo-data` and `runes-data`.
+
 ## Example Usage
 
 Below is an example of how you can integrate Svelte Lib Helpers subcommands into the scripts section of your package.json file within a SvelteKit project:
@@ -149,6 +151,7 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
     "gen:docs5": "svelte-lib-helpers docs5",
     "gen:docs5FromType": "svelte-lib-helpers docs5FromType",
     "gen:compo-data": "svelte-lib-helpers compo-data",
+    "gen:runes-data": "node ./index.js runes-data",
     "copy:package": "svelte-lib-helpers package",
     "lib-helpers": "npm run format && npm run gen:docs && npm run gen:compo-data && npm run package && npm run gen:exports && npm run copy:package",
     "package:publish": "standard-version && git push --follow-tags origin main && npm publish"
