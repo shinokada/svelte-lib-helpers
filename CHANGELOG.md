@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.8
+
+### Patch Changes
+
+- feat: add runes-data ([`73e39c2a0aab57ef8457feb58ad61b5c2a1e3cd8`](https://github.com/shinokada/svelte-lib-helpers/commit/73e39c2a0aab57ef8457feb58ad61b5c2a1e3cd8))
+
 ## 0.4.7
 
 ### Patch Changes
