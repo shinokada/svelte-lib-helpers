@@ -15,6 +15,7 @@
     "gen:docs5": "node ./index.js docs5",
     "gen:docs5FromType": "node ./index.js docs5FromType",
     "gen:compo-data": "node ./index.js compo-data",
+    "gen:runes-data": "node ./index.js runes-data",
     "copy:package": "node ./index.js package",
     "removeDocs": "node ./index.js removeDocs",
     "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run gen:exports && npm run copy:package",

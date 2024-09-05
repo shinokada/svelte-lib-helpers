@@ -6,6 +6,7 @@ import { lstat, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { addCompoDocs } from './lib/addCompoDocs.js';
 import { generateComponentData } from './lib/generateComponentData.js';
+import { generateRunesComponentData } from './lib/generateRunesComponentData.js';
 import { copyPackageToDist } from './lib/copyPackageToDist.js';
 import { exportSvelteComponents } from './lib/exportSvelteComponents.js';
 import { addCompoDocs5 } from './lib/addCompoDocs5.js';
@@ -34,6 +35,8 @@ if (command === "docs") {
   copyPackageToDist(distDir, packageJsonPath);
 } else if (command === "compo-data") {
   generateComponentData();
+} else if (command === "runes-data") {
+  generateRunesComponentData();
 } else {
   console.log("Unknown command. Available commands: docs, exports");
 }

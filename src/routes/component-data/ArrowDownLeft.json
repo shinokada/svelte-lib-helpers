@@ -1,1 +1,1 @@
-{"name":"ArrowDownLeft","slots":[],"events":[],"props":[]}
+{"name":"ArrowDownLeft","props":[["size","ctx.size || 24"],["role","ctx.role || img"],["color","ctx.color || currentColor"],["variation","ctx.variation || \"outline\""],["strokeWidth","ctx.strokeWidth || 1.5"],["withEvents","ctx.withEvents || false"],["title",""],["desc",""],["class: classname",""],["ariaLabel","\"arrow down left\""],["onclick",""],["onkeydown",""],["onkeyup",""],["...restProps",""]]}

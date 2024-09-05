@@ -1,0 +1,1 @@
+{"name":"Us","props":[["size","ctx.size || 24"],["role","ctx.role || img"],["title",""],["desc",""],["ariaLabel","us"],["...restProps",""]]}

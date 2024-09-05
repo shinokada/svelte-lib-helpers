@@ -1,1 +1,1 @@
-{"name":"UserSolid","slots":[],"events":[],"props":[]}
+{"name":"UserSolid","props":[["size","ctx.size || md"],["role",""],["class: classname",""],["ariaLabel","user solid"],["'",""],["...restProps",""]]}
