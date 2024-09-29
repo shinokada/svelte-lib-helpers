@@ -1,0 +1,62 @@
+{
+  "name": "CheckboxButton",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "children",
+      "Snippet",
+      ""
+    ],
+    [
+      "className",
+      "",
+      ""
+    ],
+    [
+      "group",
+      "array",
+      "[]"
+    ],
+    [
+      "value",
+      "string | number",
+      "'on'"
+    ],
+    [
+      "checked",
+      "boolean | undefined",
+      ""
+    ],
+    [
+      "inline",
+      "boolean",
+      "true"
+    ],
+    [
+      "pill",
+      "boolean",
+      ""
+    ],
+    [
+      "outline",
+      "boolean",
+      ""
+    ],
+    [
+      "size",
+      "SizeType",
+      ""
+    ],
+    [
+      "color",
+      "ColorName | 'alternative' | 'dark' | 'light'",
+      ""
+    ],
+    [
+      "shadow",
+      "boolean",
+      ""
+    ]
+  ]
+}

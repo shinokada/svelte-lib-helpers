@@ -1,0 +1,47 @@
+{
+  "name": "Heart",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "fillPercent",
+      "",
+      "100"
+    ],
+    [
+      "fillColor",
+      "",
+      "'#ff0000'"
+    ],
+    [
+      "strokeColor",
+      "",
+      "'#ff0000'"
+    ],
+    [
+      "size",
+      "",
+      "24"
+    ],
+    [
+      "ariaLabel",
+      "",
+      "'heart'"
+    ],
+    [
+      "id",
+      "",
+      "idGenerator()"
+    ],
+    [
+      "role",
+      "",
+      "'img'"
+    ],
+    [
+      "svgClass",
+      "",
+      ""
+    ]
+  ]
+}

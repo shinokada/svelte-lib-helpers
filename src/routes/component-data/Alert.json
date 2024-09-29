@@ -1,0 +1,19 @@
+{
+  "name": "Alert",
+  "slots": [
+    "icon",
+    "close-button"
+  ],
+  "events": [
+    "close",
+    "click",
+    "change",
+    "keydown",
+    "keyup",
+    "focus",
+    "blur",
+    "mouseenter",
+    "mouseleave"
+  ],
+  "props": []
+}

@@ -12,6 +12,8 @@ import { exportSvelteComponents } from './lib/exportSvelteComponents.js';
 import { addCompoDocs5 } from './lib/addCompoDocs5.js';
 import { removeDocs } from './lib/removeDocs.js';
 import { addCompoDocs5fromType } from './lib/addCompoDocs5fromType.js';
+import { componentData } from './lib/componentData.js';
+import { componentDataRunes } from './lib/componentDataRunes.js';
 
 const srcDir = './src/lib';
 const distDir = './dist';
@@ -35,8 +37,12 @@ if (command === "docs") {
   copyPackageToDist(distDir, packageJsonPath);
 } else if (command === "compo-data") {
   generateComponentData();
+} else if (command === "component-data") {
+  componentData();
 } else if (command === "runes-data") {
   generateRunesComponentData();
+} else if (command === "component-data-runes") {
+  componentDataRunes();
 } else {
   console.log("Unknown command. Available commands: docs, exports");
 }

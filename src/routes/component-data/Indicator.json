@@ -1,0 +1,47 @@
+{
+  "name": "Indicator",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "children",
+      "",
+      ""
+    ],
+    [
+      "color",
+      "",
+      "'gray'"
+    ],
+    [
+      "rounded",
+      "",
+      "false"
+    ],
+    [
+      "size",
+      "",
+      "'md'"
+    ],
+    [
+      "border",
+      "",
+      "false"
+    ],
+    [
+      "placement",
+      "",
+      ""
+    ],
+    [
+      "offset",
+      "",
+      "true"
+    ],
+    [
+      "divClass",
+      "",
+      ""
+    ]
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "name": "SidebarDropdownWrapper",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "children",
+      "Snippet",
+      ""
+    ],
+    [
+      "arrowup",
+      "",
+      ""
+    ],
+    [
+      "arrowdown",
+      "",
+      ""
+    ],
+    [
+      "iconSlot",
+      "",
+      ""
+    ],
+    [
+      "isOpen",
+      "boolean",
+      "false"
+    ],
+    [
+      "btnClass",
+      "",
+      ""
+    ],
+    [
+      "label",
+      "",
+      ""
+    ],
+    [
+      "spanClass",
+      "",
+      ""
+    ],
+    [
+      "ulClass",
+      "",
+      ""
+    ],
+    [
+      "transition",
+      "TransitionFunc",
+      "slide"
+    ],
+    [
+      "params",
+      "ParamsType",
+      ""
+    ],
+    [
+      "svgClass",
+      "",
+      ""
+    ],
+    [
+      "className",
+      "",
+      ""
+    ],
+    [
+      "onclick",
+      "",
+      ""
+    ]
+  ]
+}

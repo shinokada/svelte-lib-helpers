@@ -1,1 +1,10 @@
-{"name":"Badge","props":[["children",""],["icon",""],["color","primary"],["large","false"],["dismissable","false"],["class: divClass",""],["border",""],["href",""],["rounded",""],["transition","fade"],["params",""],["onclick",""],["...attributes",""]]}
+{
+  "name": "Badge",
+  "slots": [
+    "close-button"
+  ],
+  "events": [
+    "close"
+  ],
+  "props": []
+}

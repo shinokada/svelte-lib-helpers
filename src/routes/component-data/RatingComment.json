@@ -1,0 +1,32 @@
+{
+  "name": "RatingComment",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "children",
+      "",
+      ""
+    ],
+    [
+      "evaluation",
+      "",
+      ""
+    ],
+    [
+      "helpfullink",
+      "",
+      ""
+    ],
+    [
+      "abuselink",
+      "",
+      ""
+    ],
+    [
+      "comment",
+      "",
+      ""
+    ]
+  ]
+}

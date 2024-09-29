@@ -1,0 +1,17 @@
+{
+  "name": "SidebarButton",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "breakpoint",
+      "BreakpointType",
+      "'md'"
+    ],
+    [
+      "className",
+      "",
+      ""
+    ]
+  ]
+}

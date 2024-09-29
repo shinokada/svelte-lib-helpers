@@ -1,0 +1,10 @@
+{
+  "name": "Table",
+  "slots": [
+    "search",
+    "svgSearch",
+    "header"
+  ],
+  "events": [],
+  "props": []
+}

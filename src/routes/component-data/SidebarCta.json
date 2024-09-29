@@ -1,0 +1,37 @@
+{
+  "name": "SidebarCta",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "children",
+      "Snippet",
+      ""
+    ],
+    [
+      "icon",
+      "",
+      ""
+    ],
+    [
+      "divClass",
+      "string",
+      ""
+    ],
+    [
+      "spanClass",
+      "",
+      ""
+    ],
+    [
+      "label",
+      "",
+      ""
+    ],
+    [
+      "className",
+      "",
+      ""
+    ]
+  ]
+}

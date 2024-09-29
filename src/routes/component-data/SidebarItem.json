@@ -1,0 +1,57 @@
+{
+  "name": "SidebarItem",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "iconSlot",
+      "",
+      ""
+    ],
+    [
+      "subtext",
+      "",
+      ""
+    ],
+    [
+      "href",
+      "",
+      ""
+    ],
+    [
+      "label",
+      "",
+      ""
+    ],
+    [
+      "spanClass",
+      "",
+      "'ms-3'"
+    ],
+    [
+      "activeClass",
+      "string",
+      ""
+    ],
+    [
+      "nonActiveClass",
+      "string",
+      ""
+    ],
+    [
+      "aClass",
+      "",
+      ""
+    ],
+    [
+      "active",
+      "",
+      ""
+    ],
+    [
+      "className",
+      "",
+      ""
+    ]
+  ]
+}

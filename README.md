@@ -133,11 +133,72 @@ The script extract props from `export let myprops` and creates component docs.
 
 Copies your project's package.json to the dist directory, allowing for seamless distribution of your library.
 
+## Componet data
+
+The following commands will generate JSON files containing props, slots, and events information from all Svelte files in the src/lib directory, placing them in the routes/component-data directory.
+
 ### compo-data
 
-Generates JSON files containing props, slots, events information from all Svelte files in the src/lib directory, placing them in the routes/component-data directory.
+This will generate a JSON file for each component with the following format from:
 
-There are two sub commands, `compo-data` and `runes-data`.
+```js
+export let color: 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined = 'primary';
+export let bg: string = 'text-gray-300';
+// more lines for events and slots
+```
+
+to:
+```json
+{"name":"Spinner","slots":[],"events":[],"props":[["color","'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined","'primary'"],["bg","string","'text-gray-300'"]]}
+```
+
+### componentData
+
+From this:
+
+```js
+interface $$Props extends ComponentProps<TransitionFrame> {
+  dismissable?: boolean;
+  defaultClass?: string;
+}
+
+export let dismissable: $$Props['dismissable'] = false;
+export let defaultClass: $$Props['defaultClass'] = 'p-4 gap-3 text-sm';
+// more lines for events and slots
+```
+
+to:
+
+```json
+{"name":"Alert","slots":["icon","close-button"],"events":["on:close","on:click","on:change","on:keydown","on:keyup","on:focus","on:blur","on:mouseenter","on:mouseleave"],"props":[["dismissable","$$Props['dismissable']","false"],["defaultClass","$$Props['defaultClass']","'p-4 gap-3 text-sm'"]]}
+```
+
+### runes-data
+
+From:
+
+```js
+interface Props extends HTMLAttributes<HTMLElement> {
+  children: Snippet;
+  footerType?: 'sitemap' | 'default' | 'logo' | 'socialmedia' | undefined;
+  class?: string | undefined;
+}
+
+let {
+  children,
+  footerType = 'default',
+  class: footerclass,
+  ...attributes
+}: Props = $props();
+```
+
+to:
+
+```json
+
+```
+
+
 
 ## Example Usage
 

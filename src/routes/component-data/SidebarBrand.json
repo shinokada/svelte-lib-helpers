@@ -1,0 +1,32 @@
+{
+  "name": "SidebarBrand",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "children",
+      "Snippet",
+      ""
+    ],
+    [
+      "site",
+      "",
+      ""
+    ],
+    [
+      "imgClass",
+      "",
+      ""
+    ],
+    [
+      "spanClass",
+      "",
+      ""
+    ],
+    [
+      "className",
+      "",
+      ""
+    ]
+  ]
+}

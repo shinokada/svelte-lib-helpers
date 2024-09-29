@@ -1,0 +1,52 @@
+{
+  "name": "AdvancedRating",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "rating",
+      "Snippet",
+      ""
+    ],
+    [
+      "globalText",
+      "Snippet",
+      ""
+    ],
+    [
+      "ratings",
+      "object",
+      ""
+    ],
+    [
+      "divClass",
+      "",
+      ""
+    ],
+    [
+      "spanClass",
+      "",
+      ""
+    ],
+    [
+      "div2Class",
+      "",
+      ""
+    ],
+    [
+      "div3Class",
+      "",
+      ""
+    ],
+    [
+      "span2Class",
+      "",
+      ""
+    ],
+    [
+      "unit",
+      "",
+      ""
+    ]
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Footer",
+  "slots": [],
+  "events": [],
+  "props": [
+    [
+      "Snippet",
+      "",
+      ""
+    ],
+    [
+      "'sitemap' | 'default' | 'logo' | 'socialmedia' | undefined",
+      "",
+      "'default'"
+    ],
+    [
+      "string | undefined",
+      "",
+      "''"
+    ]
+  ]
+}
