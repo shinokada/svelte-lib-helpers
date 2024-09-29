@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.9
+
+### Patch Changes
+
+- feat: add componentData for $Props ([`0ca0f85451253ccc5f1794f6cd3d55485fe285fc`](https://github.com/shinokada/svelte-lib-helpers/commit/0ca0f85451253ccc5f1794f6cd3d55485fe285fc))
+
 ## 0.4.8
 
 ### Patch Changes
