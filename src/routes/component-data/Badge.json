@@ -6,5 +6,46 @@
   "events": [
     "close"
   ],
-  "props": []
+  "props": [
+    [
+      "color?",
+      "ColorVariant",
+      ""
+    ],
+    [
+      "large?",
+      "boolean",
+      "false"
+    ],
+    [
+      "dismissable?",
+      "boolean",
+      "false"
+    ],
+    [
+      "border?",
+      "boolean",
+      "false"
+    ],
+    [
+      "href?",
+      "string",
+      "''"
+    ],
+    [
+      "rounded?",
+      "boolean",
+      "false"
+    ],
+    [
+      "transition?",
+      "TransitionFunc",
+      ""
+    ],
+    [
+      "params?",
+      "object",
+      "{}"
+    ]
+  ]
 }

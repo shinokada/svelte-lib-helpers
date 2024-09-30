@@ -12,6 +12,7 @@
     "format": "prettier --write 'src/**/*.{js,ts,svelte}'",
     "gen:exports": "node ./index.js exports",
     "gen:docs": "node ./index.js docs",
+    "gen:docsFromProps": "node ./index.js docsFromProps",
     "gen:docs5": "node ./index.js docs5",
     "gen:docs5FromType": "node ./index.js docs5FromType",
     "gen:compo-data": "node ./index.js compo-data",

@@ -15,5 +15,16 @@
     "mouseenter",
     "mouseleave"
   ],
-  "props": []
+  "props": [
+    [
+      "dismissable?",
+      "boolean",
+      "false"
+    ],
+    [
+      "defaultClass?",
+      "string",
+      "'p-4 gap-3 text-sm'"
+    ]
+  ]
 }

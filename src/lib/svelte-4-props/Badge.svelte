@@ -107,14 +107,14 @@
 
 <!--
 @component
-[Go to docs](https://flowbite-svelte.com/)
+[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop export let color: NonNullable<$$Props['color']> = 'primary';
-@prop export let large: $$Props['large'] = false;
-@prop export let dismissable: $$Props['dismissable'] = false;
-@prop export let border: $$Props['border'] = false;
-@prop export let href: $$Props['href'] = '';
-@prop export let rounded: $$Props['rounded'] = false;
-@prop export let transition: NonNullable<$$Props['transition']> = fade;
-@prop export let params: $$Props['params'] = {};
+@prop export let color: ColorVariant = 'primary'
+@prop export let large: boolean = false
+@prop export let dismissable: boolean = false
+@prop export let border: boolean = false
+@prop export let href: string = ''
+@prop export let rounded: boolean = false
+@prop export let transition: TransitionFunc = fade
+@prop export let params: object = {}
 -->

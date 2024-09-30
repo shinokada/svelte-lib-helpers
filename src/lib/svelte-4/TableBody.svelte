@@ -21,7 +21,7 @@
 
 <!--
 @component
-[Go to docs](https://flowbite-svelte.com/)
+[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop export let tableBodyClass: string | undefined = undefined;
+@prop export let tableBodyClass: string | undefined = undefined
 -->
