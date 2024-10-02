@@ -75,26 +75,23 @@ To:
 
 ### docs5
 
-This subcommand works for Svelte 5 structure. Use `docs5` sub-command to extracts props from the content of `let { myprops, anotherprops }: Props = $props` and creates component docs. Your type names need to be `Props` or ending with `PropsType`.
-
-
-This script extracts prop definitions from your Svelte 5 components to generate documentation. It focuses on the prop destructuring syntax specific to Svelte 5 and creates a simple list of props with their default values.
+The subcommand `docs5` extracts prop definitions from your Svelte 5 components to generate documentation. It focuses on the prop destructuring syntax specific to Svelte 5 and creates a simple list of props with their default values.
 
 #### Requirements
 
 Your Svelte 5 component must use the $props() syntax for prop destructuring.
-The script supports various prop type annotations, including custom types.
+The command supports various prop type annotations, including custom types.
 
 #### How It Works
 
-The script searches for the prop destructuring pattern in your Svelte files:
+The command searches for the prop destructuring pattern in your Svelte files:
 javascriptCopylet { ... }: SomePropsType = $props()
 
 It extracts all props defined within the curly braces.
 The extracted props are used to generate documentation comments in the Svelte file.
 
 #### Output Format
-The script generates a comment block in your Svelte file with the following structure.
+The command generates a comment block in your Svelte file with the following structure.
 
 From the following props structure:
 
@@ -123,13 +120,13 @@ To:
 
 #### Notes
 
-- The script removes any existing @component comment blocks before adding the new one.
+- The command removes any existing @component comment blocks before adding the new one.
 - It preserves the prop definitions exactly as they appear in your code, including default values and type annotations.
 - Comments within the prop destructuring are removed from the documentation.
 - The documentation URL is taken from the homepage field in your package.json file.
 
 #### Troubleshooting
-If the script doesn't generate the expected output:
+If the command doesn't generate the expected output:
 
 1. Ensure your Svelte file uses the $props() syntax for prop destructuring.
 2. Check that your package.json has a valid homepage field.
@@ -143,7 +140,7 @@ If the script doesn't generate the expected output:
 ### docs5FromType
 
 #### Overview
-This script extracts prop types and default values from your Svelte components to generate documentation. It supports two common patterns for defining prop types:
+The subcommand `docs5FromType` extracts prop types and default values from your Svelte components to generate documentation. It supports two common patterns for defining prop types:
 
 1. Types defined directly in the Svelte file
 2. Types imported from a separate TypeScript file (typically ./index.ts)
@@ -158,7 +155,7 @@ Your component must use one of these patterns for prop definitions:
 
 #### How It Works
 
-1. The script first looks for type definitions within the Svelte file itself.
+1. The command first looks for type definitions within the Svelte file itself.
 2. If no types are found in the Svelte file, it checks for imports from ./index.ts.
 3. It extracts prop names, types, and default values.
 4. The extracted information is used to generate documentation comments in the Svelte file.
@@ -166,11 +163,11 @@ Your component must use one of these patterns for prop definitions:
 #### Notes
 
 - Ensure your prop destructuring in the Svelte file matches the interface definition.
--The script handles both let { ... }: Props = $props(); syntax for Svelte 5 and older syntax for previous versions.
+- The command handles both let { ... }: Props = $props(); syntax for Svelte 5 and older syntax for previous versions.
 - Custom types used in your props should be defined in the same file or properly imported.
 
 #### Troubleshooting
-If the script doesn't generate the expected output:
+If the command doesn't generate the expected output:
 
 1. Check that your prop interface follows one of the supported patterns.
 2. Verify that all custom types are properly defined or imported.
