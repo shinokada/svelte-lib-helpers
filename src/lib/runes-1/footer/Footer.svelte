@@ -24,3 +24,12 @@
 <footer {...attributes} class={footerCls}>
   {@render children()}
 </footer>
+
+<!--
+@component
+[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
+## Props
+@props: children: any;
+@props:footerType: any = 'default';
+@props:class: any = '';
+-->

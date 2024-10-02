@@ -59,11 +59,5 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop export let color: FormColorType = 'primary'
-@prop export let custom: boolean = false
-@prop export let inline: boolean = false
-@prop export let group: number | string | undefined = undefined
-@prop export let value: number | string = ''
-@prop export let spacing: string = $$slots.default ? 'me-2' : ''
-@prop export let checked: boolean = false
+@props: 
 -->

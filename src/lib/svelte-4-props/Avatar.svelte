@@ -67,12 +67,5 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop export let src: string = ''
-@prop export let href: string = undefined
-@prop export let rounded: boolean = false
-@prop export let border: boolean = false
-@prop export let stacked: boolean = false
-@prop export let dot: object | undefined = undefined
-@prop export let alt: string = ''
-@prop export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none' = 'md'
+@props: 
 -->

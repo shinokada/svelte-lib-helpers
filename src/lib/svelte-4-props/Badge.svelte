@@ -109,12 +109,5 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop export let color: ColorVariant = 'primary'
-@prop export let large: boolean = false
-@prop export let dismissable: boolean = false
-@prop export let border: boolean = false
-@prop export let href: string = ''
-@prop export let rounded: boolean = false
-@prop export let transition: TransitionFunc = fade
-@prop export let params: object = {}
+@props: 
 -->

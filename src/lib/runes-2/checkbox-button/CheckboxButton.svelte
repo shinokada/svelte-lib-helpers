@@ -50,18 +50,17 @@
 
 <!--
 @component
-[Go to docs](https://svelte-5-ui-lib.codewithshin.com/)
+[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop children
-@prop class: className
-@prop group = []
-@prop value = 'on'
-@prop checked
-@prop inline = true
-@prop pill
-@prop outline
-@prop size
-@prop color
-@prop shadow
-@prop ...restProps
+@props: children: any;
+@props:class: any;
+@props:group: any = [];
+@props:value: any = 'on';
+@props:checked: any;
+@props:inline: any = true;
+@props:pill: any;
+@props:outline: any;
+@props:size: any;
+@props:color: any;
+@props:shadow: any;
 -->

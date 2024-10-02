@@ -23,5 +23,5 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@prop export let tableBodyClass: string | undefined = undefined
+@props: 
 -->
