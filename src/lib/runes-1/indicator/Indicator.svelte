@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
+  import type { IndicatorPlacementType } from '$lib/types';
+  import { twMerge } from 'tailwind-merge';
 
   interface Props extends HTMLAttributes<HTMLDivElement> {
     children?: Snippet;
@@ -12,9 +14,7 @@
     class?: string | undefined;
     offset?: boolean;
   }
-  import type { IndicatorPlacementType } from '$lib/types';
-  import { twMerge } from 'tailwind-merge';
-
+  
   let {
     children,
     color = 'gray',
@@ -111,12 +111,12 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@props: children: any;
-@props:color: any = 'gray';
-@props:rounded: any = false;
-@props:size: any = 'md';
-@props:border: any = false;
-@props:placement: any;
-@props:offset: any = true;
-@props:class: any;
+@props: children: Snippet;
+@props:color: IndicatorColorType = 'gray';
+@props:rounded: boolean = false;
+@props:size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+@props:border: boolean = false;
+@props:placement: IndicatorPlacementType | undefined;
+@props:offset: boolean = true;
+@props:class: string | undefined;
 -->

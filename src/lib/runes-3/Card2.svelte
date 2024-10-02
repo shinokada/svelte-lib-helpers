@@ -28,11 +28,11 @@
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
 @props: children: any;
-@props:drawerStatus: any;
-@props:toggleDrawer: any;
-@props:position: any = 'fixed';
-@props:leftOffset: any = 'inset-y-0 start-0';
-@props:width: any = 'w-80';
-@props:placement: any = 'left';
-@props:transitionParams: any;
+@props:drawerStatus: boolean;
+@props:toggleDrawer: () => void;
+@props:position: 'fixed' | 'absolute' = 'fixed';
+@props:leftOffset: string | undefined = 'inset-y-0 start-0';
+@props:width: string = 'w-80';
+@props:placement: 'left' | 'right' | 'top' | 'bottom' = 'left';
+@props:transitionParams: drawerTransitionParamTypes;
 -->
