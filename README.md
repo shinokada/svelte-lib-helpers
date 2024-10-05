@@ -73,6 +73,30 @@ To:
 -->
 ```
 
+Or from the following structure:
+
+```js
+  interface $$Props extends ComponentProps<TransitionFrame> {
+    dismissable?: boolean;
+    defaultClass?: string;
+  }
+
+  export let dismissable: $$Props['dismissable'] = false;
+  export let defaultClass: $$Props['defaultClass'] = 'p-4 gap-3 text-sm';
+```
+
+To:
+
+```json
+<!--
+@component
+[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
+## Props
+@prop export let dismissable: boolean = false
+@prop export let defaultClass: string = 'p-4 gap-3 text-sm'
+-->
+```
+
 ### docs5
 
 The subcommand `docs5` extracts prop definitions from your Svelte 5 components to generate documentation. It focuses on the prop destructuring syntax specific to Svelte 5 and creates a simple list of props with their default values.

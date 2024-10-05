@@ -31,5 +31,5 @@
 ## Props
 @props: children: any;
 @props:footerType: any = 'default';
-@props:class: any = '';
+@props:class: string = '';
 -->

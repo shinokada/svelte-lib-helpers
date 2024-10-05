@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.10
+
+### Patch Changes
+
+- fix: addCompoDocs5fromType.js ([`ea6d4f29f0160c6f1e66b1a5a22c312ad53772e7`](https://github.com/shinokada/svelte-lib-helpers/commit/ea6d4f29f0160c6f1e66b1a5a22c312ad53772e7))
+
 ## 0.4.9
 
 ### Patch Changes

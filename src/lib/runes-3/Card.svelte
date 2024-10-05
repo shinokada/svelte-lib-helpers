@@ -17,7 +17,7 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@props: children: Snippet;
-@props:footerType: 'sitemap' | 'default' | 'logo' | 'socialmedia' | undefined = 'default';
-@props:class: string | undefined;
+@props: children: any;
+@props:footerType: any = 'default';
+@props:class: string;
 -->
