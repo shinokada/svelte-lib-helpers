@@ -3,11 +3,25 @@
   import { twMerge } from 'tailwind-merge';
   import { type CheckboxButtonProps as Props } from '.';
 
-  let { children, class: className, group = [], value = 'on', checked, inline = true, pill, outline, size, color, shadow, ...restProps }: Props = $props();
+  let {
+    children,
+    class: className,
+    group = [],
+    value = 'on',
+    checked,
+    inline = true,
+    pill,
+    outline,
+    size,
+    color,
+    shadow,
+    ...restProps
+  }: Props = $props();
 
   // react on external group changes
   function init(_: HTMLElement, _group: (string | number)[]) {
-    if (checked === undefined && value !== undefined) checked = _group.includes(value);
+    if (checked === undefined && value !== undefined)
+      checked = _group.includes(value);
     onChange();
 
     return {
@@ -40,11 +54,30 @@
     }
   }
 
-  let buttonClass: string = $derived(twMerge(inline ? 'inline-flex' : 'flex', className));
+  let buttonClass: string = $derived(
+    twMerge(inline ? 'inline-flex' : 'flex', className)
+  );
 </script>
 
-<Button tag="label" {checked} {pill} {outline} {size} {color} {shadow} class={buttonClass}>
-  <input use:init={group} type="checkbox" bind:checked {value} {...restProps} class="sr-only" onchange={onChange} />
+<Button
+  tag="label"
+  {checked}
+  {pill}
+  {outline}
+  {size}
+  {color}
+  {shadow}
+  class={buttonClass}
+>
+  <input
+    use:init={group}
+    type="checkbox"
+    bind:checked
+    {value}
+    {...restProps}
+    class="sr-only"
+    onchange={onChange}
+  />
   {@render children()}
 </Button>
 

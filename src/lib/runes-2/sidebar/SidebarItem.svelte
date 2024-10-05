@@ -17,7 +17,19 @@
     active?: boolean;
   }
 
-  let { iconSlot, subtext, href, label, spanClass = 'ms-3', activeClass, nonActiveClass, aClass, active, class: className, ...restProps }: Props = $props();
+  let {
+    iconSlot,
+    subtext,
+    href,
+    label,
+    spanClass = 'ms-3',
+    activeClass,
+    nonActiveClass,
+    aClass,
+    active,
+    class: className,
+    ...restProps
+  }: Props = $props();
 
   const context = getContext<SidebarCtxType>('sidebarContext') ?? {};
   let currentUrl = $state();
@@ -26,11 +38,21 @@
     currentUrl = $page.url.pathname;
   });
 
-  let aCls = $derived((active ?? currentUrl === href) ? (activeClass ?? context.activeClass) : (nonActiveClass ?? context.nonActiveClass));
+  let aCls = $derived(
+    active ?? currentUrl === href
+      ? activeClass ?? context.activeClass
+      : nonActiveClass ?? context.nonActiveClass
+  );
 </script>
 
 <li class={className}>
-  <a onclick={context.closeSidebar} {...restProps} {href} aria-current={active ?? currentUrl === href} class={twMerge(aCls, aClass)}>
+  <a
+    onclick={context.closeSidebar}
+    {...restProps}
+    {href}
+    aria-current={active ?? currentUrl === href}
+    class={twMerge(aCls, aClass)}
+  >
     {#if iconSlot}
       {@render iconSlot()}
     {/if}

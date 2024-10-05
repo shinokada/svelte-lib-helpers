@@ -3,8 +3,10 @@
   import { twMerge } from 'tailwind-merge';
 
   const colorClasses: Record<FormColorType, string> = {
-    primary: 'text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600',
-    secondary: 'text-secondary-600 focus:ring-secondary-500 dark:focus:ring-secondary-600',
+    primary:
+      'text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600',
+    secondary:
+      'text-secondary-600 focus:ring-secondary-500 dark:focus:ring-secondary-600',
     red: 'text-red-600 focus:ring-red-500 dark:focus:ring-red-600',
     green: 'text-green-600 focus:ring-green-500 dark:focus:ring-green-600',
     purple: 'text-purple-600 focus:ring-purple-500 dark:focus:ring-purple-600',
@@ -14,9 +16,28 @@
     blue: 'text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600'
   };
 
-  export const labelClass = (inline: boolean, extraClass: string) => twMerge(inline ? 'inline-flex' : 'flex', 'items-center', extraClass);
+  export const labelClass = (inline: boolean, extraClass: string) =>
+    twMerge(inline ? 'inline-flex' : 'flex', 'items-center', extraClass);
 
-  export const inputClass = (custom: boolean, color: FormColorType, rounded: boolean, tinted: boolean, spacing: string, extraClass: string) => twMerge('w-4 h-4 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 focus:ring-2', spacing, tinted ? 'dark:bg-gray-600 dark:border-gray-500' : 'dark:bg-gray-700 dark:border-gray-600', custom && 'sr-only peer', rounded && 'rounded', colorClasses[color], extraClass);
+  export const inputClass = (
+    custom: boolean,
+    color: FormColorType,
+    rounded: boolean,
+    tinted: boolean,
+    spacing: string,
+    extraClass: string
+  ) =>
+    twMerge(
+      'w-4 h-4 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 focus:ring-2',
+      spacing,
+      tinted
+        ? 'dark:bg-gray-600 dark:border-gray-500'
+        : 'dark:bg-gray-700 dark:border-gray-600',
+      custom && 'sr-only peer',
+      rounded && 'rounded',
+      colorClasses[color],
+      extraClass
+    );
 </script>
 
 <script lang="ts">
@@ -40,7 +61,9 @@
   export let inline: NonNullable<$$Props['inline']> = false;
   export let group: $$Props['group'] = undefined;
   export let value: $$Props['value'] = '';
-  export let spacing: NonNullable<$$Props['spacing']> = $$slots.default ? 'me-2' : '';
+  export let spacing: NonNullable<$$Props['spacing']> = $$slots.default
+    ? 'me-2'
+    : '';
   export let checked: $$Props['checked'] = false;
 
   // tinted if put in component having its own background
@@ -51,7 +74,31 @@
 </script>
 
 <Label class={labelClass(inline, $$props.class)} show={$$slots.default}>
-  <input type="radio" bind:group={group} on:blur on:change on:click on:focus on:keydown on:keypress on:keyup on:mouseenter on:mouseleave on:mouseover on:paste {value} {...$$restProps} class={inputClass(custom, color, false, background, spacing, $$slots.default || $$props.class)} />
+  <input
+    type="radio"
+    bind:group
+    on:blur
+    on:change
+    on:click
+    on:focus
+    on:keydown
+    on:keypress
+    on:keyup
+    on:mouseenter
+    on:mouseleave
+    on:mouseover
+    on:paste
+    {value}
+    {...$$restProps}
+    class={inputClass(
+      custom,
+      color,
+      false,
+      background,
+      spacing,
+      $$slots.default || $$props.class
+    )}
+  />
   <slot />
 </Label>
 

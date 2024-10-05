@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { TableBodyRow, TableBodyCell, type TableBodyProps as Props, type CellValue, type BodyRow } from '.';
+  import {
+    TableBodyRow,
+    TableBodyCell,
+    type TableBodyProps as Props,
+    type CellValue,
+    type BodyRow
+  } from '.';
 
   let { children, bodyItems, class: className, ...restProps }: Props = $props();
 

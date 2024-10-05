@@ -4,7 +4,25 @@
   import { sineIn } from 'svelte/easing';
   import { type SidebarProps as Props, sidebar, type SidebarCtxType } from '.';
 
-  let { children, isOpen = false, closeSidebar, isSingle = true, breakpoint = 'md', position = 'fixed', activateClickOutside = true, backdrop = true, backdropClass, transition = fly, params, divClass, ariaLabel, nonActiveClass, activeClass, class: className, ...restProps }: Props = $props();
+  let {
+    children,
+    isOpen = false,
+    closeSidebar,
+    isSingle = true,
+    breakpoint = 'md',
+    position = 'fixed',
+    activateClickOutside = true,
+    backdrop = true,
+    backdropClass,
+    transition = fly,
+    params,
+    divClass,
+    ariaLabel,
+    nonActiveClass,
+    activeClass,
+    class: className,
+    ...restProps
+  }: Props = $props();
 
   const breakpointValues = {
     sm: 640,
@@ -20,7 +38,13 @@
     isLargeScreen = window.innerWidth >= breakpointValues[breakpoint];
   }
 
-  const { base, active, nonactive, div, backdrop: backdropCls } = $derived(sidebar({ isOpen, breakpoint, position, backdrop }));
+  const {
+    base,
+    active,
+    nonactive,
+    div,
+    backdrop: backdropCls
+  } = $derived(sidebar({ isOpen, breakpoint, position, backdrop }));
 
   let sidebarCtx: SidebarCtxType = {
     get closeSidebar() {
@@ -35,7 +59,9 @@
     isSingle
   };
 
-  let transitionParams = params ? params : { x: -320, duration: 200, easing: sineIn };
+  let transitionParams = params
+    ? params
+    : { x: -320, duration: 200, easing: sineIn };
 
   setContext('sidebarContext', sidebarCtx);
   $effect(() => {
@@ -48,16 +74,35 @@
 {#if isOpen || isLargeScreen}
   {#if isOpen}
     {#if backdrop && activateClickOutside}
-      <div role="presentation" class={backdropCls({ class: backdropClass })} onclick={closeSidebar}></div>
+      <div
+        role="presentation"
+        class={backdropCls({ class: backdropClass })}
+        onclick={closeSidebar}
+      ></div>
     {:else if backdrop && !activateClickOutside}
-      <div role="presentation" class={backdropCls({ class: backdropClass })}></div>
+      <div
+        role="presentation"
+        class={backdropCls({ class: backdropClass })}
+      ></div>
     {:else if !backdrop && activateClickOutside}
-      <div role="presentation" class="fixed start-0 top-0 z-50 h-full w-full" onclick={closeSidebar}></div>
+      <div
+        role="presentation"
+        class="fixed start-0 top-0 z-50 h-full w-full"
+        onclick={closeSidebar}
+      ></div>
     {:else if !backdrop && !activateClickOutside}
-      <div role="presentation" class="fixed start-0 top-0 z-50 h-full w-full"></div>
+      <div
+        role="presentation"
+        class="fixed start-0 top-0 z-50 h-full w-full"
+      ></div>
     {/if}
   {/if}
-  <aside transition:transition={transitionParams} {...restProps} class={base({ className })} aria-label={ariaLabel}>
+  <aside
+    transition:transition={transitionParams}
+    {...restProps}
+    class={base({ className })}
+    aria-label={ariaLabel}
+  >
     <div class={div({ class: divClass })}>
       {@render children()}
     </div>

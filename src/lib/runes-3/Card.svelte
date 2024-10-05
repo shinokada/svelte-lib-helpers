@@ -1,5 +1,5 @@
 <script lang="ts">
-    interface Props {
+  interface Props {
     children: Snippet;
     footerType?: 'sitemap' | 'default' | 'logo' | 'socialmedia' | undefined;
     class?: string | undefined;

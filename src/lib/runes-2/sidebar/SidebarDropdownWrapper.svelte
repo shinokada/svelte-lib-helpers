@@ -4,14 +4,34 @@
   import type { ParamsType } from '../types';
   import { slide } from 'svelte/transition';
   import { uiHelpers } from '$lib';
-  import { type SidebarDropdownWrapperProps as Props, sidebardropdownwrapper, type SidebarCtxType } from '.';
+  import {
+    type SidebarDropdownWrapperProps as Props,
+    sidebardropdownwrapper,
+    type SidebarCtxType
+  } from '.';
 
   type SidebarContext = {
     selected?: Writable<object | null>;
     isSingle: boolean;
   };
 
-  let { children, arrowup, arrowdown, iconSlot, isOpen = false, btnClass, label, spanClass, ulClass, transition = slide, params, svgClass, class: className, onclick, ...restProps }: Props = $props();
+  let {
+    children,
+    arrowup,
+    arrowdown,
+    iconSlot,
+    isOpen = false,
+    btnClass,
+    label,
+    spanClass,
+    ulClass,
+    transition = slide,
+    params,
+    svgClass,
+    class: className,
+    onclick,
+    ...restProps
+  }: Props = $props();
 
   const { base, btn, span, svg, ul } = $derived(sidebardropdownwrapper());
 
@@ -26,7 +46,9 @@
   }
 
   // Use the shared selected store if in single mode, otherwise use the local isOpen state
-  let selected: Writable<object | null> = ctx.isSingle ? ctx.selected! : writable(self);
+  let selected: Writable<object | null> = ctx.isSingle
+    ? ctx.selected!
+    : writable(self);
 
   $effect(() => {
     if (ctx.isSingle) {
@@ -48,7 +70,13 @@
 </script>
 
 <li class={base({ className })}>
-  <button {...restProps} onclick={handleDropdown} type="button" class={btn({ class: btnClass })} aria-controls="sidebar-dropdown">
+  <button
+    {...restProps}
+    onclick={handleDropdown}
+    type="button"
+    class={btn({ class: btnClass })}
+    aria-controls="sidebar-dropdown"
+  >
     {#if iconSlot}
       {@render iconSlot()}
     {/if}
@@ -57,20 +85,47 @@
       {#if arrowup}
         {@render arrowup()}
       {:else}
-        <svg class={svg({ class: svgClass })} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+        <svg
+          class={svg({ class: svgClass })}
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 10 6"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5 5 1 1 5"
+          />
         </svg>
       {/if}
     {:else if arrowdown}
       {@render arrowdown()}
     {:else}
-      <svg class={svg({ class: svgClass })} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+      <svg
+        class={svg({ class: svgClass })}
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 10 6"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 1 4 4 4-4"
+        />
       </svg>
     {/if}
   </button>
   {#if isOpen}
-    <ul class={ul({ class: ulClass })} transition:transition={params as ParamsType}>
+    <ul
+      class={ul({ class: ulClass })}
+      transition:transition={params as ParamsType}
+    >
       {@render children()}
     </ul>
   {/if}

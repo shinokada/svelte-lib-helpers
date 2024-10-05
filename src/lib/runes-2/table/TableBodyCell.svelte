@@ -1,7 +1,14 @@
 <script lang="ts">
   import { type TableBodyCellProps as Props, tablebodycell } from './';
 
-  let { children, color, class: className, colspan, onclick, ...restProps }: Props = $props();
+  let {
+    children,
+    color,
+    class: className,
+    colspan,
+    onclick,
+    ...restProps
+  }: Props = $props();
 
   const base = $derived(tablebodycell({ className }));
 </script>

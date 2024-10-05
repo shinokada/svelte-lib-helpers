@@ -5,10 +5,20 @@ import SidebarItem from './SidebarItem.svelte';
 import SidebarButton from './SidebarButton.svelte';
 import SidebarCta from './SidebarCta.svelte';
 import SidebarBrand from './SidebarBrand.svelte';
-import { sidebar, sidebarbutton, sidebarcta, sitebarbrand, sidebardropdownwrapper } from './theme';
+import {
+  sidebar,
+  sidebarbutton,
+  sidebarcta,
+  sitebarbrand,
+  sidebardropdownwrapper
+} from './theme';
 import { type Writable } from 'svelte/store';
 import type { Snippet } from 'svelte';
-import type { HTMLAttributes, HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
+import type {
+  HTMLAttributes,
+  HTMLButtonAttributes,
+  HTMLAnchorAttributes
+} from 'svelte/elements';
 import type { VariantProps } from 'tailwind-variants';
 import type { TransitionFunc, ParamsType } from '../types';
 
@@ -82,4 +92,25 @@ interface SidebarDropdownWrapperProps extends HTMLButtonAttributes {
   isSingle?: boolean;
 }
 
-export { Sidebar, sidebar, type SidebarProps, SidebarDropdownWrapper, sidebardropdownwrapper, type SidebarDropdownWrapperProps, SidebarGroup, SidebarItem, type SidebarCtxType, SidebarButton, sidebarbutton, type SidebarButtonProps, SidebarCta, sidebarcta, type SidebarCtaProps, SidebarBrand, sitebarbrand, type SidebarBrandProps, type BreakpointType, type PosisionType };
+export {
+  Sidebar,
+  sidebar,
+  type SidebarProps,
+  SidebarDropdownWrapper,
+  sidebardropdownwrapper,
+  type SidebarDropdownWrapperProps,
+  SidebarGroup,
+  SidebarItem,
+  type SidebarCtxType,
+  SidebarButton,
+  sidebarbutton,
+  type SidebarButtonProps,
+  SidebarCta,
+  sidebarcta,
+  type SidebarCtaProps,
+  SidebarBrand,
+  sitebarbrand,
+  type SidebarBrandProps,
+  type BreakpointType,
+  type PosisionType
+};

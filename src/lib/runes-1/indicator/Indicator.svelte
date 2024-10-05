@@ -14,7 +14,7 @@
     class?: string | undefined;
     offset?: boolean;
   }
-  
+
   let {
     children,
     color = 'gray',

@@ -13,10 +13,23 @@
   export let defaultClass: $$Props['defaultClass'] = 'p-4 gap-3 text-sm';
 
   let divClass: string;
-  $: divClass = twMerge(defaultClass, ($$slots.icon || dismissable) && 'flex items-center', $$props.class);
+  $: divClass = twMerge(
+    defaultClass,
+    ($$slots.icon || dismissable) && 'flex items-center',
+    $$props.class
+  );
 </script>
 
-<TransitionFrame {dismissable} color="primary" role="alert" rounded {...$$restProps} class={divClass} on:close let:close>
+<TransitionFrame
+  {dismissable}
+  color="primary"
+  role="alert"
+  rounded
+  {...$$restProps}
+  class={divClass}
+  on:close
+  let:close
+>
   {#if $$slots.icon}
     <slot name="icon" />
   {/if}
@@ -29,7 +42,19 @@
 
   {#if dismissable}
     <slot name="close-button" {close}>
-      <CloseButton class="ms-auto -me-1.5 -my-1.5 dark:hover:bg-gray-700" color={$$restProps.color} on:click={close} on:click on:change on:keydown on:keyup on:focus on:blur on:mouseenter on:mouseleave />
+      <CloseButton
+        class="-my-1.5 -me-1.5 ms-auto dark:hover:bg-gray-700"
+        color={$$restProps.color}
+        on:click={close}
+        on:click
+        on:change
+        on:keydown
+        on:keyup
+        on:focus
+        on:blur
+        on:mouseenter
+        on:mouseleave
+      />
     </slot>
   {/if}
 </TransitionFrame>

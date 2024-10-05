@@ -181,108 +181,129 @@ export const tablebodyrow = tv({
     {
       striped: true,
       color: 'default',
-      class: 'odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700'
+      class:
+        'odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700'
     },
     {
       striped: true,
       color: 'primary',
-      class: 'odd:bg-primary-500 even:bg-primary-600 odd:dark:bg-primary-500 even:dark:bg-primary-600'
+      class:
+        'odd:bg-primary-500 even:bg-primary-600 odd:dark:bg-primary-500 even:dark:bg-primary-600'
     },
     {
       striped: true,
       color: 'secondary',
-      class: 'odd:bg-secondary-500 even:bg-secondary-600 odd:dark:bg-secondary-500 even:dark:bg-secondary-600'
+      class:
+        'odd:bg-secondary-500 even:bg-secondary-600 odd:dark:bg-secondary-500 even:dark:bg-secondary-600'
     },
     {
       striped: true,
       color: 'gray',
-      class: 'odd:bg-gray-500 even:bg-gray-600 odd:dark:bg-gray-500 even:dark:bg-gray-600'
+      class:
+        'odd:bg-gray-500 even:bg-gray-600 odd:dark:bg-gray-500 even:dark:bg-gray-600'
     },
     // default, primary, secondary, gray, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose
     {
       striped: true,
       color: 'red',
-      class: 'odd:bg-red-500 even:bg-red-600 odd:dark:bg-red-500 even:dark:bg-red-600'
+      class:
+        'odd:bg-red-500 even:bg-red-600 odd:dark:bg-red-500 even:dark:bg-red-600'
     },
     {
       striped: true,
       color: 'orange',
-      class: 'odd:bg-orange-500 even:bg-orange-600 odd:dark:bg-orange-500 even:dark:bg-orange-600'
+      class:
+        'odd:bg-orange-500 even:bg-orange-600 odd:dark:bg-orange-500 even:dark:bg-orange-600'
     },
     {
       striped: true,
       color: 'amber',
-      class: 'odd:bg-amber-500 even:bg-amber-600 odd:dark:bg-amber-500 even:dark:bg-amber-600'
+      class:
+        'odd:bg-amber-500 even:bg-amber-600 odd:dark:bg-amber-500 even:dark:bg-amber-600'
     },
     {
       striped: true,
       color: 'yellow',
-      class: 'odd:bg-yellow-500 even:bg-yellow-600 odd:dark:bg-yellow-500 even:dark:bg-yellow-600'
+      class:
+        'odd:bg-yellow-500 even:bg-yellow-600 odd:dark:bg-yellow-500 even:dark:bg-yellow-600'
     },
     {
       striped: true,
       color: 'lime',
-      class: 'odd:bg-lime-500 even:bg-lime-600 odd:dark:bg-lime-500 even:dark:bg-lime-600'
+      class:
+        'odd:bg-lime-500 even:bg-lime-600 odd:dark:bg-lime-500 even:dark:bg-lime-600'
     },
     {
       striped: true,
       color: 'green',
-      class: 'odd:bg-green-500 even:bg-green-600 odd:dark:bg-green-500 even:dark:bg-green-600'
+      class:
+        'odd:bg-green-500 even:bg-green-600 odd:dark:bg-green-500 even:dark:bg-green-600'
     },
     {
       striped: true,
       color: 'emerald',
-      class: 'odd:bg-emerald-500 even:bg-emerald-600 odd:dark:bg-emerald-500 even:dark:bg-emerald-600'
+      class:
+        'odd:bg-emerald-500 even:bg-emerald-600 odd:dark:bg-emerald-500 even:dark:bg-emerald-600'
     },
     {
       striped: true,
       color: 'teal',
-      class: 'odd:bg-teal-500 even:bg-teal-600 odd:dark:bg-teal-500 even:dark:bg-teal-600'
+      class:
+        'odd:bg-teal-500 even:bg-teal-600 odd:dark:bg-teal-500 even:dark:bg-teal-600'
     },
     {
       striped: true,
       color: 'cyan',
-      class: 'odd:bg-cyan-500 even:bg-cyan-600 odd:dark:bg-cyan-500 even:dark:bg-cyan-600'
+      class:
+        'odd:bg-cyan-500 even:bg-cyan-600 odd:dark:bg-cyan-500 even:dark:bg-cyan-600'
     },
     {
       striped: true,
       color: 'sky',
-      class: 'odd:bg-sky-500 even:bg-sky-600 odd:dark:bg-sky-500 even:dark:bg-sky-600'
+      class:
+        'odd:bg-sky-500 even:bg-sky-600 odd:dark:bg-sky-500 even:dark:bg-sky-600'
     },
     {
       striped: true,
       color: 'blue',
-      class: 'odd:bg-blue-500 even:bg-blue-600 odd:dark:bg-blue-500 even:dark:bg-blue-600'
+      class:
+        'odd:bg-blue-500 even:bg-blue-600 odd:dark:bg-blue-500 even:dark:bg-blue-600'
     },
     {
       striped: true,
       color: 'indigo',
-      class: 'odd:bg-indigo-500 even:bg-indigo-600 odd:dark:bg-indigo-500 even:dark:bg-indigo-600'
+      class:
+        'odd:bg-indigo-500 even:bg-indigo-600 odd:dark:bg-indigo-500 even:dark:bg-indigo-600'
     },
     {
       striped: true,
       color: 'violet',
-      class: 'odd:bg-violet-500 even:bg-violet-600 odd:dark:bg-violet-500 even:dark:bg-violet-600'
+      class:
+        'odd:bg-violet-500 even:bg-violet-600 odd:dark:bg-violet-500 even:dark:bg-violet-600'
     },
     {
       striped: true,
       color: 'purple',
-      class: 'odd:bg-purple-500 even:bg-purple-600 odd:dark:bg-purple-500 even:dark:bg-purple-600'
+      class:
+        'odd:bg-purple-500 even:bg-purple-600 odd:dark:bg-purple-500 even:dark:bg-purple-600'
     },
     {
       striped: true,
       color: 'fuchsia',
-      class: 'odd:bg-fuchsia-500 even:bg-fuchsia-600 odd:dark:bg-fuchsia-500 even:dark:bg-fuchsia-600'
+      class:
+        'odd:bg-fuchsia-500 even:bg-fuchsia-600 odd:dark:bg-fuchsia-500 even:dark:bg-fuchsia-600'
     },
     {
       striped: true,
       color: 'pink',
-      class: 'odd:bg-pink-500 even:bg-pink-600 odd:dark:bg-pink-500 even:dark:bg-pink-600'
+      class:
+        'odd:bg-pink-500 even:bg-pink-600 odd:dark:bg-pink-500 even:dark:bg-pink-600'
     },
     {
       striped: true,
       color: 'rose',
-      class: 'odd:bg-rose-500 even:bg-rose-600 odd:dark:bg-rose-500 even:dark:bg-rose-600'
+      class:
+        'odd:bg-rose-500 even:bg-rose-600 odd:dark:bg-rose-500 even:dark:bg-rose-600'
     }
   ]
 });
@@ -295,7 +316,8 @@ export const tablehead = tv({
 
       default: 'text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-700',
       primary: 'text-white dark:text-white bg-primary-700 dark:bg-primary-700',
-      secondary: 'text-white dark:text-white bg-secondary-700 dark:bg-secondary-700',
+      secondary:
+        'text-white dark:text-white bg-secondary-700 dark:bg-secondary-700',
       gray: 'text-white dark:text-white bg-gray-700 dark:bg-gray-700',
       red: 'text-white dark:text-white bg-red-700 dark:bg-red-700',
       orange: 'text-white dark:text-white bg-orange-700 dark:bg-orange-700',

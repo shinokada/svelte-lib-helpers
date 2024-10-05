@@ -28,4 +28,10 @@ interface CheckboxProps extends HTMLInputAttributes {
   class?: string;
 }
 
-export { Checkbox, checkbox, type CheckboxProps, type CheckboxItem, type ColorType };
+export {
+  Checkbox,
+  checkbox,
+  type CheckboxProps,
+  type CheckboxItem,
+  type ColorType
+};

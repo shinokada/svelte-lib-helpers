@@ -7,14 +7,20 @@
   let color = 'default';
   color = getContext('color');
   let tdClassfinal: string;
-  $: tdClassfinal = twMerge(tdClass, color === 'default' ? 'text-gray-900 dark:text-white' : 'text-blue-50 whitespace-nowrap dark:text-blue-100', $$props.class);
+  $: tdClassfinal = twMerge(
+    tdClass,
+    color === 'default'
+      ? 'text-gray-900 dark:text-white'
+      : 'text-blue-50 whitespace-nowrap dark:text-blue-100',
+    $$props.class
+  );
 </script>
 
-<td  {...$$restProps} class={tdClassfinal}>
+<td {...$$restProps} class={tdClassfinal}>
   {#if $$props.onclick}
-  <button on:click={$$props.onclick}>
-    <slot />
-  </button>
+    <button on:click={$$props.onclick}>
+      <slot />
+    </button>
   {:else}
     <slot />
   {/if}
