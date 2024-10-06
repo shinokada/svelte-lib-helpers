@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.12
+
+### Patch Changes
+
+- feat: componentData5FromType.js update ([`6f4c189aa8db44a87a1497ea66df99f3241a1b71`](https://github.com/shinokada/svelte-lib-helpers/commit/6f4c189aa8db44a87a1497ea66df99f3241a1b71))
+
 ## 0.4.11
 
 ### Patch Changes
