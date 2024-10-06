@@ -1,0 +1,45 @@
+{
+  "name": "Indicator",
+  "props": [
+    [
+      "children",
+      "any",
+      ""
+    ],
+    [
+      "color",
+      "any",
+      "'gray'"
+    ],
+    [
+      "rounded",
+      "any",
+      "false"
+    ],
+    [
+      "size",
+      "any",
+      "'md'"
+    ],
+    [
+      "border",
+      "any",
+      "false"
+    ],
+    [
+      "placement",
+      "any",
+      ""
+    ],
+    [
+      "offset",
+      "any",
+      "true"
+    ],
+    [
+      "class",
+      "string",
+      ""
+    ]
+  ]
+}

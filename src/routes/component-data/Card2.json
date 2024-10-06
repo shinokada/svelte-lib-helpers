@@ -1,0 +1,45 @@
+{
+  "name": "Card2",
+  "props": [
+    [
+      "children",
+      "any",
+      ""
+    ],
+    [
+      "drawerStatus",
+      "any",
+      ""
+    ],
+    [
+      "toggleDrawer",
+      "any",
+      ""
+    ],
+    [
+      "position",
+      "any",
+      "'fixed'"
+    ],
+    [
+      "leftOffset",
+      "any",
+      "'inset-y-0 start-0'"
+    ],
+    [
+      "width",
+      "any",
+      "'w-80'"
+    ],
+    [
+      "placement",
+      "any",
+      "'left'"
+    ],
+    [
+      "transitionParams",
+      "any",
+      ""
+    ]
+  ]
+}

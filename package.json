@@ -17,7 +17,7 @@
     "gen:docs5FromType": "pnpm rmdoc && node ./index.js docs5FromType",
     "gen:compo-data": "pnpm rmjson && node ./index.js compo-data",
     "gen:componentData": "pnpm rmjson && node ./index.js component-data",
-    "gen:componentDataRunes2": "pnpm rmjson && node ./index.js runes2-data",
+    "gen:component-data-from-type": "pnpm rmjson && node ./index.js component-data-from-type",
     "gen:componentDataRunes": "pnpm rmjson && node ./index.js component-data-runes",
     "gen:runes-data": "pnpm rmjson && node ./index.js runes-data",
     "copy:package": "node ./index.js package",

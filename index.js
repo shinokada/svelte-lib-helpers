@@ -13,7 +13,7 @@ import { addCompoDocs5 } from './lib/addCompoDocs5.js';
 import { removeDocs } from './lib/removeDocs.js';
 import { addCompoDocs5fromType } from './lib/addCompoDocs5fromType.js';
 import { componentData } from './lib/componentData.js';
-import { componentDataRunes2 } from './lib/componentDataRunes2.js';
+import { componentData5FromType } from './lib/componentData5FromType.js';
 import { componentDataRunes } from './lib/componentDataRunes.js';
 import { compoDocsFromProp } from './lib/compoDocsFromProp.js';
 
@@ -43,8 +43,8 @@ if (command === "docs") {
   generateComponentData();
 } else if (command === "component-data") {
   componentData();
-} else if (command === "runes2-data") {
-  componentDataRunes2();
+} else if (command === "component-data-from-type") {
+  componentData5FromType(srcDir);
 } else if (command === "runes-data") {
   generateRunesComponentData();
 } else if (command === "generate-runes-data") {

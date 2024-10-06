@@ -1,0 +1,20 @@
+{
+  "name": "Card",
+  "props": [
+    [
+      "children",
+      "any",
+      ""
+    ],
+    [
+      "footerType",
+      "any",
+      "'default'"
+    ],
+    [
+      "class",
+      "string",
+      ""
+    ]
+  ]
+}
