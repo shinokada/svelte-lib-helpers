@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.14
+
+### Patch Changes
+
+- fix: componentDataFromType.js ([`85740d1545df3ad5300e668b15c8773bf209c3ba`](https://github.com/shinokada/svelte-lib-helpers/commit/85740d1545df3ad5300e668b15c8773bf209c3ba))
+
 ## 0.4.13
 
 ### Patch Changes
