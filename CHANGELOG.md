@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.13
+
+### Patch Changes
+
+- fix: targetInterface to get correct interface ([`d8e72768f10d7559533278cb0650607a9bac75b1`](https://github.com/shinokada/svelte-lib-helpers/commit/d8e72768f10d7559533278cb0650607a9bac75b1))
+
 ## 0.4.12
 
 ### Patch Changes
