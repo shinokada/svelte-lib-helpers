@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.15
+
+### Patch Changes
+
+- fix: add extractExtendedTypes ([`7059784fb65357d03d80c93407f93ff3215387a7`](https://github.com/shinokada/svelte-lib-helpers/commit/7059784fb65357d03d80c93407f93ff3215387a7))
+
 ## 0.4.14
 
 ### Patch Changes
