@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.16
+
+### Patch Changes
+
+- fix: componentData5FromType update regex fro propLines ([`9e3d6420c77e220375ef18641009a6f7f05344fe`](https://github.com/shinokada/svelte-lib-helpers/commit/9e3d6420c77e220375ef18641009a6f7f05344fe))
+
 ## 0.4.15
 
 ### Patch Changes
