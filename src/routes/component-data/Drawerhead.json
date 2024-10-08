@@ -1,43 +1,38 @@
 {
-  "name": "Android",
+  "name": "Drawerhead",
   "props": [
+    [
+      "closeIcon",
+      "Snippet",
+      ""
+    ],
     [
       "children",
       "Snippet",
       ""
     ],
     [
-      "divClass",
+      "tag",
+      "string",
+      "'h5'"
+    ],
+    [
+      "headClass",
       "string",
       ""
     ],
     [
-      "div2Class",
+      "buttonClass",
       "string",
       ""
     ],
     [
-      "div3Class",
+      "svgClass",
       "string",
       ""
     ],
     [
-      "div4Class",
-      "string",
-      ""
-    ],
-    [
-      "div5Class",
-      "string",
-      ""
-    ],
-    [
-      "div6Class",
-      "string",
-      ""
-    ],
-    [
-      "div7Class",
+      "class",
       "string",
       ""
     ]
