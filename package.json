@@ -21,11 +21,15 @@
     "gen:componentDataRunes": "pnpm rmjson && node ./index.js component-data-runes",
     "gen:runes-data": "pnpm rmjson && node ./index.js runes-data",
     "copy:package": "node ./index.js package",
+    "copy:ts": "node ./index.js ts",
     "gen:runes3": "node ./index.js generate-runes-data",
     "rmdoc": "node ./index.js removeDocs",
     "rmjson": "rm -f ./src/routes/component-data/*.json",
     "lib-helpers": "npm run gen:docs && npm run gen:compo-data && npm run gen:exports && npm run copy:package",
-    "package:publish": "standard-version && git push --follow-tags origin main && npm publish"
+    "package:publish": "standard-version && git push --follow-tags origin main && npm publish",
+    "ch": "npx changeset",
+    "cv": "npx changeset version",
+    "cp": "npx changeset publish"
   },
   "repository": {
     "type": "git",
@@ -45,6 +49,7 @@
   },
   "homepage": "https://github.com/shinokada/svelte-lib-helpers#readme",
   "dependencies": {
+    "jsonc-parser": "^3.3.1",
     "yargs": "^17.7.2"
   },
   "devDependencies": {

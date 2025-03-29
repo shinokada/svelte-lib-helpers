@@ -35,18 +35,5 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@props: children: Snippet;
-@props:drawerStatus: boolean;
-@props:closeDrawer: () => void;
-@props:activateClickOutside: boolean = true;
-@props:position: VariantProps<typeof drawer>['position'];
-@props:width: VariantProps<typeof drawer>['width'];
-@props:backdrop: boolean = true;
-@props:backdropClass: string;
-@props:placement: VariantProps<typeof drawer>['placement'] = 'left';
-@props:class: string;
-@props:params: ParamsType = { x: -320;
-@props:duration: any;
-@props:easing: any;
-@props:transition: TransitionFunc = fly;
+@props: 
 -->

@@ -40,6 +40,16 @@ Add the following to your package.json scripts section:
 "copy:package": "svelte-lib-helpers package",
 ```
 
+### ts
+
+Copies your project's tsconfig.json to the dist directory, allowing for seamless distribution of your library.
+
+Add the following to your package.json scripts section:
+
+```json
+"copy:ts": "svelte-lib-helpers ts",
+```
+
 ## Component documentation
 
 Generates component documentation for all Svelte files within the src/lib directory. 
@@ -169,7 +179,7 @@ The subcommand `docs5FromType` extracts prop types and default values from your 
 1. Types defined directly in the Svelte file
 2. Types imported from a separate TypeScript file (typically ./index.ts)
 
-#### Requirements
+#### Format
 
 Your component must use one of these patterns for prop definitions:
 

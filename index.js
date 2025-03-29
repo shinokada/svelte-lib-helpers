@@ -8,6 +8,7 @@ import { addCompoDocs } from './lib/addCompoDocs.js';
 import { generateComponentData } from './lib/generateComponentData.js';
 import { generateRunesComponentData } from './lib/generateRunesComponentData.js';
 import { copyPackageToDist } from './lib/copyPackageToDist.js';
+import { copyTsconfigToDist } from './lib/copyTsconfigToDist.js';
 import { exportSvelteComponents } from './lib/exportSvelteComponents.js';
 import { addCompoDocs5 } from './lib/addCompoDocs5.js';
 import { removeDocs } from './lib/removeDocs.js';
@@ -20,6 +21,7 @@ import { compoDocsFromProp } from './lib/compoDocsFromProp.js';
 const srcDir = './src/lib';
 const distDir = './dist';
 const packageJsonPath = './package.json';
+const tsconfigPath = './tsconfig.json'
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -39,6 +41,8 @@ if (command === "docs") {
   exportSvelteComponents(distDir, packageJsonPath);
 } else if (command === "package") {
   copyPackageToDist(distDir, packageJsonPath);
+} else if (command === "ts") {
+  copyTsconfigToDist(distDir, tsconfigPath);
 } else if (command === "compo-data") {
   generateComponentData();
 } else if (command === "component-data") {
