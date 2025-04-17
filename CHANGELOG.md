@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.19
+
+### Patch Changes
+
+- feat: add addCompoDocs5fromType2
+
 ## 0.4.18
 
 ### Patch Changes
