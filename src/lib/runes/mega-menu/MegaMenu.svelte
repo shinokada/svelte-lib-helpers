@@ -34,7 +34,7 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@props: children: Snippet<[{ item;
+@props: children: any;
 @props:footer: any;
 @props:items: any = [];
 @props:full: any;

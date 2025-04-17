@@ -26,14 +26,5 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Props
-@props: children: Snippet;
-@props:items: type SelectOptionType<T> = {
-  name: string | number;
-  value: T;
-}<T>[];
-@props:value: any = $bindable();
-@props:underline: boolean;
-@props:size: "sm" | "md" | "lg" = "md";
-@props:class: string;
-@props:placeholder: string = "Choose option ...";
+@props: 
 -->

@@ -1,11 +1,11 @@
 <script lang="ts">
   import { getContext } from 'svelte';
   import type { SizeType } from '$lib/types';
-  import { type ButtonProps as Props, button } from '.';
+  import { type ButtonProps, button } from '.';
 
   const group: SizeType = getContext('group');
 
-  let { children, pill = false, outline = false, size = group ? 'sm' : 'md', href, type = 'button', color = group ? (outline ? 'dark' : 'alternative') : 'primary', shadow = false, tag = 'button', disabled, class: className, ...restProps }: Props = $props();
+  let { children, pill = false, outline = false, size = group ? 'sm' : 'md', href, type = 'button', color = group ? (outline ? 'dark' : 'alternative') : 'primary', shadow = false, tag = 'button', disabled, class: className, ...restProps }: ButtonProps = $props();
 
   // const disabledValue = disabled !== null ? disabled : undefined;
   const base = $derived(button({ color, size, disabled, pill, group: !!group, outline, shadow, className }));

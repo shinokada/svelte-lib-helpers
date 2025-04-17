@@ -13,6 +13,7 @@ import { exportSvelteComponents } from './lib/exportSvelteComponents.js';
 import { addCompoDocs5 } from './lib/addCompoDocs5.js';
 import { removeDocs } from './lib/removeDocs.js';
 import { addCompoDocs5fromType } from './lib/compoDocs5fromType.js';
+import { addCompoDocs5fromType2 } from './lib/compoDocs5fromType2.js';
 import { componentData } from './lib/componentData.js';
 import { componentData5FromType } from './lib/componentData5FromType.js';
 import { componentDataRunes } from './lib/componentDataRunes.js';
@@ -49,6 +50,8 @@ if (command === "docs") {
   componentData();
 } else if (command === "component-data-from-type") {
   componentData5FromType(srcDir);
+} else if (command === "addCompoDocs5fromType2") {
+  addCompoDocs5fromType2(srcDir);
 } else if (command === "runes-data") {
   generateRunesComponentData();
 } else if (command === "generate-runes-data") {

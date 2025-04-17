@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.18
+
+### Patch Changes
+
+- feat: add copy tsconfig.json
+
+## 0.4.17
+
+### Patch Changes
+
+- feat: add copying tsconfig.json
+
 ## 0.4.16
 
 ### Patch Changes

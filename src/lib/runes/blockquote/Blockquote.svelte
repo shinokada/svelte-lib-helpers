@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { type BlockquoteProps as Props, blockquote } from './index';
+  import { type BlockquoteProps, blockquote } from './index';
 
   let {
     children,
@@ -10,7 +10,7 @@
     alignment = 'left',
     size = 'lg',
     ...restProps
-  }: Props = $props();
+  }: BlockquoteProps = $props();
 
   let blockquoteClass = $derived(
     blockquote({
@@ -37,6 +37,6 @@
 @props:border: boolean;
 @props:italic: boolean = true;
 @props:bg: boolean;
-@props:alignment: VariantProps<typeof blockquote>['alignment'] = 'left';
-@props:size: VariantProps<typeof blockquote>['size'] = 'lg';
+@props:alignment: type AlignmentType = VariantProps<typeof blockquote>['alignment'] = 'left';
+@props:size: type SizeType = VariantProps<typeof blockquote>['size'] = 'lg';
 -->
