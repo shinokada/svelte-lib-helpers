@@ -67,7 +67,7 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Type
-[AccordionItemProps](https://github.com/themesberg/svelte-lib-helpers/blob/main/src/lib/types.ts#L164)
+[AccordionItemProps](https://github.com/themesberg/flowbite-svelte-next/blob/main/src/lib/types.ts#L197)
 ## Props
 @prop children
 @prop header

@@ -58,7 +58,7 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Type
-[AlertProps](https://github.com/themesberg/svelte-lib-helpers/blob/main/src/lib/types.ts#L179)
+[AlertProps](https://github.com/themesberg/flowbite-svelte-next/blob/main/src/lib/types.ts#L212)
 ## Props
 @prop children
 @prop icon
