@@ -14,6 +14,7 @@ import { addCompoDocs5 } from './lib/addCompoDocs5.js';
 import { removeDocs } from './lib/removeDocs.js';
 import { addCompoDocs5fromType } from './lib/compoDocs5fromType.js';
 import { addCompoDocs5fromType2 } from './lib/compoDocs5fromType2.js';
+import { addCompoDocsPropValue } from './lib/addCompoDocsPropValue.js'
 import { componentData } from './lib/componentData.js';
 import { componentData5FromType } from './lib/componentData5FromType.js';
 import { componentDataRunes } from './lib/componentDataRunes.js';
@@ -36,6 +37,8 @@ if (command === "docs") {
   removeDocs(srcDir);
 } else if (command === "docs5") {
   addCompoDocs5(srcDir);
+} else if (command === "docspropvalue") {
+  addCompoDocsPropValue(srcDir)
 } else if (command === "docs5FromType") {
   addCompoDocs5fromType(srcDir);
 } else if (command === "exports") {

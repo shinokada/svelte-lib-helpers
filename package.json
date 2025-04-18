@@ -1,6 +1,6 @@
 {
   "name": "svelte-lib-helpers",
-  "version": "0.4.19",
+  "version": "0.4.20",
   "description": "A utility package for Svelte libraries.",
   "type": "module",
   "main": "index.js",
@@ -15,6 +15,7 @@
     "gen:docsFromProps": "pnpm rmdoc && node ./index.js docsFromProps",
     "gen:docs5": "pnpm rmdoc && node ./index.js docs5",
     "gen:docs5FromType": "pnpm rmdoc && node ./index.js docs5FromType",
+    "gen:docspropvalue": "pnpm rmdoc && node ./index.js docspropvalue",
     "gen:compo-data": "pnpm rmjson && node ./index.js compo-data",
     "gen:componentData": "pnpm rmjson && node ./index.js component-data",
     "gen:component-data-from-type": "pnpm rmdoc && pnpm rmjson && node ./index.js component-data-from-type",
