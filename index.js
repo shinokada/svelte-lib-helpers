@@ -38,7 +38,8 @@ if (command === "docs") {
 } else if (command === "docs5") {
   addCompoDocs5(srcDir);
 } else if (command === "docspropvalue") {
-  addCompoDocsPropValue(srcDir)
+  const githubLink = args[1]; // Get the second argument
+  addCompoDocsPropValue(srcDir, githubLink)
 } else if (command === "docs5FromType") {
   addCompoDocs5fromType(srcDir);
 } else if (command === "exports") {

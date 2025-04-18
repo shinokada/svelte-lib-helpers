@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.22
+
+### Patch Changes
+
+- fix: add argument to docspropvalue
+
 ## 0.4.21
 
 ### Patch Changes
