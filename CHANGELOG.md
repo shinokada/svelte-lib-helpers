@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.24
+
+### Patch Changes
+
+- feat: add componentDataPropValue
+
 ## 0.4.23
 
 ### Patch Changes
