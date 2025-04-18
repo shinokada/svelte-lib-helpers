@@ -49,7 +49,7 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Type
-[AvatarProps](https://github.com/shinokada/svelte-lib-helpers#readme/blob/main/src/lib/types.ts#L190)
+[AvatarProps](https://github.com/themesberg/svelte-lib-helpers/blob/main/src/lib/types.ts#L190)
 ## Props
 @prop children
 @prop src

@@ -32,7 +32,7 @@
 @component
 [Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
 ## Type
-[AccordionProps](https://github.com/shinokada/svelte-lib-helpers#readme/blob/main/src/lib/types.ts#L153)
+[AccordionProps](https://github.com/themesberg/svelte-lib-helpers/blob/main/src/lib/types.ts#L153)
 ## Props
 @prop children
 @prop flush

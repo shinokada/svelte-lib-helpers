@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.21
+
+### Patch Changes
+
+- fix: adding github.com/themesberg/ to type url
+
 ## 0.4.20
 
 ### Patch Changes
