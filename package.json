@@ -1,6 +1,6 @@
 {
   "name": "svelte-lib-helpers",
-  "version": "0.4.24",
+  "version": "0.4.25",
   "description": "A utility package for Svelte libraries.",
   "type": "module",
   "main": "index.js",

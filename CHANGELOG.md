@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.25
+
+### Patch Changes
+
+- fix: update componentDataPropValue.js
+
 ## 0.4.24
 
 ### Patch Changes
