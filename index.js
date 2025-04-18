@@ -19,6 +19,7 @@ import { componentData } from './lib/componentData.js';
 import { componentData5FromType } from './lib/componentData5FromType.js';
 import { componentDataRunes } from './lib/componentDataRunes.js';
 import { compoDocsFromProp } from './lib/compoDocsFromProp.js';
+import { componentDataPropValue } from './lib/componentDataPropValue.js';
 
 const srcDir = './src/lib';
 const distDir = './dist';
@@ -52,6 +53,9 @@ if (command === "docs") {
   generateComponentData();
 } else if (command === "component-data") {
   componentData();
+} else if (command === "component-data-prop-value") {
+  const githubLink = args[1]; // Get the second argument
+  componentDataPropValue(srcDir, githubLink);
 } else if (command === "component-data-from-type") {
   componentData5FromType(srcDir);
 } else if (command === "addCompoDocs5fromType2") {

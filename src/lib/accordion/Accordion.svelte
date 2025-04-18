@@ -28,17 +28,3 @@
   {@render children()}
 </div>
 
-<!--
-@component
-[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
-## Type
-[AccordionProps](https://github.com/themesberg/flowbite-svelte-next/blob/main/src/lib/types.ts#L186)
-## Props
-@prop children
-@prop flush
-@prop activeClass
-@prop inactiveClass
-@prop multiple = false
-@prop class: className
-@prop ...restProps
--->

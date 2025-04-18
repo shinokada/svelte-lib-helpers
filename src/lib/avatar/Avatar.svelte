@@ -45,23 +45,3 @@
   <img {alt} {src} {...restProps} class={avatarClass} />
 {/if}
 
-<!--
-@component
-[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
-## Type
-[AvatarProps](https://github.com/themesberg/flowbite-svelte-next/blob/main/src/lib/types.ts#L223)
-## Props
-@prop children
-@prop src
-@prop href
-@prop target
-@prop cornerStyle = "circular"
-@prop border = false
-@prop stacked = false
-@prop dot
-@prop class: className
-@prop alt
-@prop size = "md"
-@prop onclick
-@prop ...restProps
--->

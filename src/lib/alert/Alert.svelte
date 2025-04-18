@@ -54,23 +54,3 @@
   </div>
 {/if}
 
-<!--
-@component
-[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
-## Type
-[AlertProps](https://github.com/themesberg/flowbite-svelte-next/blob/main/src/lib/types.ts#L212)
-## Props
-@prop children
-@prop icon
-@prop alertStatus = $bindable(true)
-@prop closeIcon: CloseIcon
-@prop color = "primary"
-@prop rounded = true
-@prop border
-@prop class: className
-@prop dismissable
-@prop transition = fade
-@prop params
-@prop onclick = ()
-@prop ...restProps
--->
