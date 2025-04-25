@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.26
+
+### Patch Changes
+
+- fix: componentDataPropValue to create a link for svelte/elements
+
 ## 0.4.25
 
 ### Patch Changes
