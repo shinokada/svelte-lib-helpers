@@ -16,11 +16,9 @@ Install Svelte Lib Helpers as a development dependency using npm/pnpm/yarn/bun:
 pnpm i -D svelte-lib-helpers
 ```
 
-## Sub commands
-
 Svelte Lib Helpers provides the following subcommands to enhance your Svelte library development workflow:
 
-### exports
+## exports
 
 The `exports` subcommand simplifies updating your package.json by adding or updating all Svelte files in src/lib. This enables efficient imports of individual components and reducing package size for developers.
 
@@ -30,7 +28,7 @@ Add the following to your package.json scripts section:
 "gen:exports": "svelte-lib-helpers exports",
 ```
 
-### package
+## package
 
 Copies your project's package.json to the dist directory, allowing for seamless distribution of your library.
 
@@ -40,7 +38,7 @@ Add the following to your package.json scripts section:
 "copy:package": "svelte-lib-helpers package",
 ```
 
-### ts
+## ts
 
 Copies your project's tsconfig.json to the dist directory, allowing for seamless distribution of your library.
 
@@ -81,7 +79,7 @@ Example:
 "gen:docspropvalue": "svelte-lib-helpers docspropvalue themesberg/flowbite-svelte-next",
 ```
 
-## Features
+#### Features
 
 - Automatically adds documentation comments to Svelte 5 components
 - Extracts props and their default values
@@ -90,14 +88,14 @@ Example:
 - Handles complex prop definitions with nested objects and arrays
 - Updates existing documentation comments when run multiple times
 
-## Requirements
+#### Requirements
 
 - Svelte 5
 - A `types.ts` file in your source directory
 - "homepage" field in your package.json pointing to documentation
 - Svelte 5 components using `$props()` syntax
 
-## Generated Documentation Format
+#### Generated Documentation Format
 
 The tool adds comments in this format:
 
@@ -288,7 +286,6 @@ Add the following to your package.json scripts section:
 ```json
 "gen:docs5FromType": "node ./index.js docs5FromType",
 ```
-
 
 ### docs (svelte 4)
 
