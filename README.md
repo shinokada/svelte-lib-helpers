@@ -58,52 +58,58 @@ You need to set "homepage" value in your `package.json` file.
 ```json
  "homepage": "https://flowbite-svelte.com/",
 ```
-### docs
 
-The `docs`and `docsFromProps` subcommands work for Svelte 4 structure. From the following props structure:
+### docspropvalue (for svelte 5)
 
-```js
-export let color: 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined = 'primary';
-export let bg: string = 'text-gray-300';
-export let customColor: string = '';
-export let size: string | number = '8';
-```
+Automatically generating inline documentation comments in Svelte 5 components.
 
-To:
+#### Overview
 
-```js
-<!--
-@component
-[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
-## Props
-@prop export let color: 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined = 'primary';
-@prop export let bg: string = 'text-gray-300';
-@prop export let customColor: string = '';
-@prop export let size: string | number = '8';
--->
-```
+This tool scans Svelte 5 components that use the `$props()` syntax and adds standardized documentation comments containing prop information and links to GitHub source code and documentation.
 
-Or from the following structure:
+#### Usage
 
-```js
-  interface $$Props extends ComponentProps<TransitionFrame> {
-    dismissable?: boolean;
-    defaultClass?: string;
-  }
-
-  export let dismissable: $$Props['dismissable'] = false;
-  export let defaultClass: $$Props['defaultClass'] = 'p-4 gap-3 text-sm';
-```
-
-To:
+In your scripts add the following:
 
 ```json
+"gen:docspropvalue": "svelte-lib-helpers docspropvalue <githubLink>",
+```
+
+Example: 
+
+```json
+"gen:docspropvalue": "svelte-lib-helpers docspropvalue themesberg/flowbite-svelte-next",
+```
+
+## Features
+
+- Automatically adds documentation comments to Svelte 5 components
+- Extracts props and their default values
+- Creates links to type definitions in your GitHub repository
+- Adds links to external documentation from package.json's "homepage" field
+- Handles complex prop definitions with nested objects and arrays
+- Updates existing documentation comments when run multiple times
+
+## Requirements
+
+- Svelte 5
+- A `types.ts` file in your source directory
+- "homepage" field in your package.json pointing to documentation
+- Svelte 5 components using `$props()` syntax
+
+## Generated Documentation Format
+
+The tool adds comments in this format:
+
+```html
 <!--
 @component
-[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
+[Go to docs](https://your-docs-url.com)
+## Type
+[ComponentPropsType](https://github.com/org/repo/blob/main/src/lib/types.ts#L42)
 ## Props
-@prop export let dismissable: boolean = false
-@prop export let defaultClass: string = 'p-4 gap-3 text-sm'
+@prop propName = defaultValue
+@prop anotherProp
 -->
 ```
 
@@ -283,46 +289,117 @@ Add the following to your package.json scripts section:
 "gen:docs5FromType": "node ./index.js docs5FromType",
 ```
 
-## Componet data
 
-The following commands will generate JSON files containing props, slots, and events information from all Svelte files in the src/lib directory, placing them in the routes/component-data directory.
+### docs (svelte 4)
 
-### compo-data
-
-The `compo-data` subcommand works for Svelte 4 structure. This will generate a JSON file for each component with the following format from:
+The `docs`and `docsFromProps` subcommands work for Svelte 4 structure. From the following props structure:
 
 ```js
 export let color: 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined = 'primary';
 export let bg: string = 'text-gray-300';
-// more lines for events and slots
+export let customColor: string = '';
+export let size: string | number = '8';
 ```
 
-to:
-
-```json
-{"name":"Spinner","slots":[],"events":[],"props":[["color","'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined","'primary'"],["bg","string","'text-gray-300'"]]}
-```
-
-### component-data
-
-The `component-data` subcommand works for Svelte 4 structure. This will generate a JSON file for each component with the following format from:
+To:
 
 ```js
-interface $$Props extends ComponentProps<TransitionFrame> {
-  dismissable?: boolean;
-  defaultClass?: string;
-}
-
-export let dismissable: $$Props['dismissable'] = false;
-export let defaultClass: $$Props['defaultClass'] = 'p-4 gap-3 text-sm';
-// more lines for events and slots
+<!--
+@component
+[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
+## Props
+@prop export let color: 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined = 'primary';
+@prop export let bg: string = 'text-gray-300';
+@prop export let customColor: string = '';
+@prop export let size: string | number = '8';
+-->
 ```
 
-to:
+Or from the following structure:
+
+```js
+  interface $$Props extends ComponentProps<TransitionFrame> {
+    dismissable?: boolean;
+    defaultClass?: string;
+  }
+
+  export let dismissable: $$Props['dismissable'] = false;
+  export let defaultClass: $$Props['defaultClass'] = 'p-4 gap-3 text-sm';
+```
+
+To:
 
 ```json
-{"name":"Alert","slots":["icon","close-button"],"events":["on:close","on:click","on:change","on:keydown","on:keyup","on:focus","on:blur","on:mouseenter","on:mouseleave"],"props":[["dismissable","$$Props['dismissable']","false"],["defaultClass","$$Props['defaultClass']","'p-4 gap-3 text-sm'"]]}
+<!--
+@component
+[Go to docs](https://github.com/shinokada/svelte-lib-helpers#readme)
+## Props
+@prop export let dismissable: boolean = false
+@prop export let defaultClass: string = 'p-4 gap-3 text-sm'
+-->
 ```
+
+## Component data
+
+The following commands will generate JSON files containing props, slots, and events information from all Svelte files in the src/lib directory, placing them in the routes/component-data directory.
+
+### component-data-prop-value (for svelte 5)
+
+Automatically extracting and documenting props from Svelte 5 components.
+
+#### Overview
+
+This tool scans your Svelte 5 components that use the `$props()` syntax, extracts their prop definitions, and generates JSON documentation files. It links prop types to their GitHub source files when possible.
+
+#### Usage
+
+In your scripts:
+
+```json
+"gen:component-data-prop-value": svelte-lib-helpers component-data-prop-value <githubLink>
+```
+
+Example:
+```json
+"gen:component-data-prop-value": svelte-lib-helpers component-data-prop-value themesberg/flowbite-svelte-next
+```
+
+#### Options
+
+- `--src`: Custom source directory (default: `./src/lib`)
+- `--dest`: Custom output directory (default: `./src/routes/component-data/`)
+
+#### Features
+
+- Extracts props from Svelte 5 components using `$props()` syntax
+- Identifies prop types and their documentation links
+- Handles both internal and external type imports
+- Supports generic types like `HTMLAttributes<HTMLDivElement>`
+- Preserves default prop values in documentation
+- Creates JSON documentation files for each component
+
+#### Output Format
+
+The tool generates JSON files with the following structure:
+
+```json
+{
+  "name": "ComponentName",
+  "type": {
+    "name": "TypeName",
+    "link": "https://github.com/org/repo/blob/main/src/lib/types.ts#L42"
+  },
+  "props": [
+    ["propName", "defaultValue"]
+  ]
+}
+```
+
+#### Requirements
+
+- Svelte 5
+- Svelte 5 components using `$props()` syntax
+- `types.ts` file in your source directory (optional)
 
 ### component5-data
 
@@ -453,17 +530,42 @@ Below is an example of how you can integrate Svelte Lib Helpers subcommands into
 }
 ```
 
-### Description
+### compo-data
 
-- "gen:exports": "Generate and update exports for efficient imports",
-- "gen:docs": "Generate component documentation for Svelte 4",
-- "gen:docsFromProps" : "Generate component documentation for Svelte 4 from interface Props",
-- "gen:docs5": "Generate component documentation for Svelte 5",
-- "gen:docs5FromType": "Generate component documentation for Svelte 5 from interface Props",
-- "gen:compo-data": "Generate JSON files with component information",
-- "copy:package": "Copy package.json to the dist directory"
+The `compo-data` subcommand works for Svelte 4 structure. This will generate a JSON file for each component with the following format from:
 
-Feel free to adjust these scripts according to your project's needs, incorporating Svelte Lib Helpers to enhance your library development experience.
+```js
+export let color: 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined = 'primary';
+export let bg: string = 'text-gray-300';
+// more lines for events and slots
+```
+
+to:
+
+```json
+{"name":"Spinner","slots":[],"events":[],"props":[["color","'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined","'primary'"],["bg","string","'text-gray-300'"]]}
+```
+
+### component-data
+
+The `component-data` subcommand works for Svelte 4 structure. This will generate a JSON file for each component with the following format from:
+
+```js
+interface $$Props extends ComponentProps<TransitionFrame> {
+  dismissable?: boolean;
+  defaultClass?: string;
+}
+
+export let dismissable: $$Props['dismissable'] = false;
+export let defaultClass: $$Props['defaultClass'] = 'p-4 gap-3 text-sm';
+// more lines for events and slots
+```
+
+to:
+
+```json
+{"name":"Alert","slots":["icon","close-button"],"events":["on:close","on:click","on:change","on:keydown","on:keyup","on:focus","on:blur","on:mouseenter","on:mouseleave"],"props":[["dismissable","$$Props['dismissable']","false"],["defaultClass","$$Props['defaultClass']","'p-4 gap-3 text-sm'"]]}
+```
 
 ## License
 

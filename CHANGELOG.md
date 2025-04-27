@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.27
+
+### Patch Changes
+
+- docs: update
+
 ## 0.4.26
 
 ### Patch Changes
