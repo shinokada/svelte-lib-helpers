@@ -2,25 +2,23 @@ import type { HTMLButtonAttributes, HTMLAnchorAttributes, HTMLAttributes, HTMLLi
 import type { TransitionConfig, FadeParams, BlurParams, FlyParams, SlideParams, ScaleParams, EasingFunction } from "svelte/transition";
 import { type Writable } from "svelte/store";
 import type { Snippet, Component } from "svelte";
-import type { Placement } from "@floating-ui/utils";
 import { tv, type VariantProps } from "tailwind-variants";
-import type { Picture } from "vite-imagetools";
+import type { Coords, Middleware, Placement, Strategy } from "@floating-ui/dom";
 
 // component variants
 import type { AlertVariants } from "./alert/theme";
 import type { BadgeVariants } from "./badge/theme";
 import type { BannerVariants } from "./banner/theme";
-import type { ButtonVariants, GradientButtonVariantes } from "./buttons/theme";
+import type { ButtonVariants, GradientButtonVariantes, button, gradientButton } from "./buttons/theme";
 import type { CarouselVariants } from "./carousel/theme";
+import type { closeButtonVariants } from "./utils/theme";
 import type Slide from "./carousel/Slide.svelte";
 import type { ApexOptions } from "apexcharts";
 import type { DrawerVariants } from "./drawer/theme";
-import type { PopperProps } from "$lib/utils/Popper.svelte";
-import type { CheckboxVariants } from "./forms/checkbox/theme";
 import type { FileuploadViariants } from "$lib/forms/fileupload/theme";
-import type { FloatingLabelInputVaratiants } from "$lib/forms/floating-label-input/theme";
+import type { FloatingLabelInputVaratiants } from "$lib/forms/floating-label/theme";
 import type { HelperVariants } from "$lib/forms/helper/theme";
-import type { InputVariants } from "$lib/forms/input/theme";
+import type { InputVariants } from "$lib/forms/input-field/theme";
 import type { LabelVariants } from "$lib/forms/label/theme";
 import type { RadioVariants } from "$lib/forms/radio/theme";
 import type { RangeVariants } from "$lib/forms/range/theme";
@@ -81,35 +79,20 @@ export interface drawerTransitionParamTypes {
 
 export type FormSizeType = "sm" | "md" | "lg";
 
-// export type drawerTransitionTypes = 'fade' | 'fly' | 'slide' | 'blur' | 'in:fly' | 'out:fly' | 'in:slide' | 'out:slide' | 'in:fade' | 'out:fade' | 'in:blur' | 'out:blur' | undefined;
+// closebutton
 
-// export type PsizeType = 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
+export type CloseButtonVariants = VariantProps<typeof closeButtonVariants>;
 
-// export type PweightType = 'thin' | 'extralight' | 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold' | 'black';
+export type CloseButtonProps = CloseButtonVariants &
+  AnchorButtonAttributes & {
+    onclick?: (ev: MouseEvent) => void;
+    name?: string;
+    ariaLabel?: string;
+    class?: string;
+    svgClass?: string;
+  };
 
-// export type BlockQuoteType = 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
-
-// export type FormColorType = 'blue' | 'red' | 'green' | 'purple' | 'teal' | 'yellow' | 'orange' | 'primary' | 'secondary';
-
-// export type ButtonColorType = 'alternative' | 'blue' | 'dark' | 'green' | 'light' | 'primary' | 'purple' | 'red' | 'yellow' | 'none';
-
-// export type SidebarType = {
-//   activeClass: string | undefined | null;
-//   nonActiveClass: string | undefined | null;
-// };
-
-// export interface ButtonClassesTypes {
-//   default?: string;
-//   border?: string;
-//   application?: string;
-//   pagination?: string;
-//   group?: string;
-//   card?: string;
-//   meeting?: string;
-//   video?: string;
-//   custom?: string;
-// }
-
+// Navbar
 export type NavbarType = {
   navStatus: boolean | undefined;
   breakPoint: "md" | "lg" | "xl" | "xxl";
@@ -120,19 +103,7 @@ export type NavbarType = {
 
 export type ColorVariant = "gray" | "red" | "yellow" | "green" | "indigo" | "purple" | "pink" | "blue" | "primary" | "none";
 
-// export type BottomNavVariantType = 'default' | 'border' | 'application' | 'pagination' | 'group' | 'card' | 'meeting' | 'video';
-
 export type DeviceVariantType = "default" | "ios" | "android" | "tablet" | "laptop" | "desktop" | "smartwatch";
-
-// export type ProgressBarColorType = 'primary' | 'blue' | 'gray' | 'red' | 'green' | 'yellow' | 'purple' | 'indigo';
-
-// export type SpinnerColorType = 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom';
-
-// export type ToastPositionType = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'none';
-
-// export type SpaceType = 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest' | undefined;
-
-// export type ToolbarButtonType = 'dark' | 'default' | 'gray' | 'red' | 'yellow' | 'green' | 'indigo' | 'purple' | 'pink' | 'blue';
 
 export declare type SizeType = typeof xs | typeof sm | typeof md | typeof lg | typeof xl;
 
@@ -192,6 +163,7 @@ export interface AccordionProps extends HTMLAttributes<HTMLDivElement> {
   defaultClass?: string;
   classActive?: string;
   classInactive?: string;
+  transitionType?: TransitionFunc | "none";
 }
 
 export interface AccordionItemProps extends HTMLAttributes<HTMLDivElement> {
@@ -202,8 +174,10 @@ export interface AccordionItemProps extends HTMLAttributes<HTMLDivElement> {
   open?: boolean;
   activeClass?: string;
   inactiveClass?: string;
-  transitionType?: TransitionFunc;
+  transitionType?: TransitionFunc | "none";
   transitionParams?: ParamsType;
+  headerClass?: string;
+  contentClass?: string;
 }
 
 // alert
@@ -222,6 +196,7 @@ export interface AlertProps extends Omit<AlertVariants, "icon">, Omit<HTMLAttrib
 // avatar
 export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
   children?: Snippet;
+  indicator?: Snippet;
   href?: HTMLAnchorAttributes["href"];
   target?: HTMLAnchorAttributes["target"];
   src?: string;
@@ -282,17 +257,41 @@ export interface BottomNavProps extends HTMLAttributes<HTMLDivElement> {
   activeClass?: string;
 }
 
-export interface BaseBottomNavItemProps {
+export interface BottomNavItemProps {
   children: Snippet;
   btnName?: string;
   appBtnPosition?: AppBtnPositionType;
-  target?: string;
   activeClass?: string;
   btnClass?: string;
   spanClass?: string;
+  active?: boolean;
+  // Common attributes that make sense for both button and anchor
+  id?: string;
+  class?: string;
+  style?: string;
+  tabindex?: number;
+  title?: string;
+  role?: string;
+  "aria-label"?: string;
+  "data-testid"?: string;
+  // Anchor-specific attributes
+  href?: string;
+  target?: string;
+  rel?: string;
+  download?: string | boolean;
+  // Button-specific attributes
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  name?: string;
+  value?: string | number | string[];
+  // Allow any other attributes (like data-* attributes)
+  [key: string]: any;
 }
 
-export type BottomNavItemProps = BaseBottomNavItemProps & (({ href: string } & HTMLAnchorAttributes) | ({ href?: never } & HTMLButtonAttributes));
+// export type BottomNavItemProps = BaseBottomNavItemProps & (
+//   ({ href: string } & HTMLAnchorAttributes & { active?: boolean }) |
+//   ({ href?: never } & HTMLButtonAttributes & { active?: boolean })
+// );
 
 export interface BottomNavHeaderProps {
   children: Snippet;
@@ -324,15 +323,19 @@ export interface BreadcrumbItemProps extends HTMLLiAttributes {
 }
 
 // buttongroup
-export interface ButtonGroupProps {
+export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   children: Snippet;
   size?: ButtonGroupSizeType;
   class?: string;
+  disabled?: boolean;
 }
 
 export type ButtonGroupSizeType = "sm" | "md" | "lg" | undefined;
 
 // button
+export type ButtonColor = NonNullable<VariantProps<typeof button>["color"]>;
+export type GradientButtonColor = NonNullable<VariantProps<typeof gradientButton>["color"]>;
+
 export type HTMLButtonOrAnchorAttributes = Omit<HTMLButtonAttributes & HTMLAnchorAttributes, "color">;
 
 export type ButtonProps = ButtonVariants &
@@ -341,18 +344,18 @@ export type ButtonProps = ButtonVariants &
     disabled?: boolean;
     outline?: boolean;
     shadow?: boolean;
+    color?: ButtonColor;
   };
 
 export interface GradientButtonProps extends GradientButtonVariantes, HTMLButtonOrAnchorAttributes {
   tag?: string;
   disabled?: boolean;
   href?: string;
+  color?: GradientButtonColor;
 }
 
 // card
 export type CardSizeType = "sm" | "md" | "lg" | "xl" | "xs" | undefined;
-
-export type PaddingType = "sm" | "lg" | "md" | "xl" | "xs" | "none" | undefined;
 
 export type ShadowType = "sm" | "normal" | "lg" | "md" | "xl" | "2xl" | "inner" | undefined;
 
@@ -366,7 +369,6 @@ export interface BaseCardProps {
   shadow?: ShadowType;
   reverse?: boolean;
   img?: string;
-  padding?: PaddingType;
   size?: CardSizeType;
   class?: string;
   // onclick?: () => void;
@@ -397,17 +399,24 @@ export interface CarouselProps extends CarouselVariants, Omit<HTMLAttributes<HTM
   disableSwipe?: boolean;
   imgClass?: string;
   onchange?: (x: HTMLImgAttributes) => {};
+  divClass?: string;
 }
 
 export interface IndicatorsProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
   children?: Snippet<[{ selected: boolean; index: number }]>;
   activeClass?: string;
   inactiveClass?: string;
+  position?: "top" | "bottom" | "withThumbnails";
 }
 
 export interface ControlButtonProps extends HTMLButtonAttributes {
   forward: boolean;
-  name: string;
+  name?: string | undefined | null;
+}
+
+export interface ControlsProps extends Omit<HTMLButtonAttributes, "children"> {
+  children?: Snippet<[(forward: boolean) => void]>;
+  class?: string;
 }
 
 export interface ThumbnailProps extends HTMLImgAttributes {
@@ -418,9 +427,9 @@ export interface ThumbnailsProps extends Omit<HTMLAttributes<HTMLDivElement>, "c
   children?: Snippet<[{ image: HTMLImgAttributes; selected: boolean; imgClass: string; Thumbnail: Component }]>;
   images: HTMLImgAttributes[];
   index: number;
-  ariaLabel: string;
-  imgClass: string;
-  throttleDelay: number;
+  ariaLabel?: string;
+  imgClass?: string;
+  throttleDelay?: number;
 }
 
 export interface SlideProps extends HTMLImgAttributes {
@@ -449,21 +458,21 @@ export type DateOrRange = Date | { from?: Date; to?: Date };
 export interface DatepickerProps extends Omit<HTMLAttributes<HTMLDivElement>, "onselect"> {
   value?: Date;
   defaultDate?: Date | null;
-  range: boolean;
+  range?: boolean;
   rangeFrom?: Date;
   rangeTo?: Date;
-  locale: string;
-  firstDayOfWeek: number;
-  dateFormat: Intl.DateTimeFormatOptions;
-  placeholder: string;
-  disabled: boolean;
-  required: boolean;
-  inputClass: string;
-  color: ButtonProps["color"];
-  inline: boolean;
-  autohide: boolean;
-  showActionButtons: boolean;
-  title: string;
+  locale?: string;
+  firstDayOfWeek?: number;
+  dateFormat?: Intl.DateTimeFormatOptions;
+  placeholder?: string;
+  disabled?: boolean;
+  required?: boolean;
+  inputClass?: string;
+  color?: ButtonProps["color"];
+  inline?: boolean;
+  autohide?: boolean;
+  showActionButtons?: boolean;
+  title?: string;
   onselect?: (x: DateOrRange) => void;
   onclear?: () => void;
   onapply?: (x: DateOrRange) => void;
@@ -483,7 +492,7 @@ export interface MockupBaseProps extends HTMLAttributes<HTMLElement> {
   div4Class?: string;
 }
 
-export interface AndroidProps {
+export interface AndroidProps extends HTMLAttributes<HTMLDivElement> {
   children?: Snippet;
   divClass?: string;
   div2Class?: string;
@@ -560,6 +569,7 @@ export interface DropdownProps extends PopperProps {
   ulClass?: string;
   backdropClass?: string;
   activeUrl?: string;
+  isOpen?: boolean | undefined;
 }
 
 export interface DropdownDividerProps extends HTMLAttributes<HTMLDivElement> {}
@@ -568,12 +578,15 @@ export interface DropdownHeaderProps extends HTMLAttributes<HTMLDivElement> {
   children: Snippet;
 }
 
-export interface DropdownItemProps extends HTMLAnchorAttributes {
+export type DropdownItemAnchorButtonAttributes = HTMLAnchorAttributes & Omit<HTMLButtonAttributes, keyof HTMLAnchorAttributes | "type">;
+
+export interface DropdownItemProps extends DropdownItemAnchorButtonAttributes {
   children: Snippet;
   aClass?: string;
   href?: string;
   activeClass?: string;
   liClass?: string;
+  onclick?: () => void;
 }
 
 export interface DropdownGroupProps extends HTMLAttributes<HTMLUListElement> {
@@ -631,15 +644,25 @@ export interface FooterLinkProps extends HTMLAnchorAttributes {
 // forms
 // checkbox
 export interface CheckboxItem {
-  value: string;
+  value: string | number;
   label?: string;
   checked?: boolean | null;
   [key: string]: any;
 }
 
-export interface CheckboxProps extends Omit<HTMLInputAttributes, "children"> {
-  children?: Snippet<[CheckboxItem]>;
-  color?: CheckboxVariants["color"];
+export type CheckboxColorType = "primary" | "secondary" | "gray" | "red" | "orange" | "amber" | "yellow" | "lime" | "green" | "emerald" | "teal" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "fuchsia" | "pink" | "rose";
+
+export interface CheckboxProps extends Omit<HTMLInputAttributes, "children" | "color"> {
+  children?: Snippet<
+    [
+      | {
+          value?: string | number;
+          checked: boolean;
+        }
+      | CheckboxItem
+    ]
+  >;
+  color?: CheckboxColorType;
   custom?: boolean;
   inline?: boolean;
   tinted?: boolean;
@@ -647,6 +670,8 @@ export interface CheckboxProps extends Omit<HTMLInputAttributes, "children"> {
   group?: (string | number)[];
   choices?: CheckboxItem[];
   indeterminate?: boolean;
+  divClass?: string;
+  labelProps?: Record<string, any>;
 }
 
 // checkbox-button
@@ -663,17 +688,34 @@ export interface CheckboxButtonProps extends Omit<HTMLInputAttributes, "size"> {
 }
 
 // dropzone
-export interface DropzoneProps extends HTMLInputAttributes {
+type HTMLInputElementWithFiles = HTMLInputElement & { files: FileList | null };
+
+type BaseInputProps = Omit<
+  HTMLInputAttributes,
+  'ondragover' | 'ondrop' | 'onchange'
+>;
+
+export interface DropzoneProps extends BaseInputProps {
   children: Snippet;
   files?: FileList | null;
+  ondrop?: DragEventHandler<HTMLButtonElement>;
+  ondragover?: DragEventHandler<HTMLButtonElement>;
+  onchange?: ChangeEventHandler<HTMLInputElementWithFiles>;
+  class?: string;
 }
+
 
 // fileupload
 export interface FileuploadProps extends Omit<HTMLInputAttributes, "size"> {
-  files?: FileList;
+  files?: FileList | null;
   size?: FileuploadViariants["size"];
   color?: InputProps<never>["color"];
+  elementRef?: HTMLInputElement;
   clearable?: boolean;
+  clearableSvgClass?: string;
+  clearableColor?: CloseButtonVariants["color"];
+  clearableOnClick?: () => void;
+  clearableClass?: string;
 }
 
 // floatinglabel-input
@@ -681,12 +723,21 @@ export interface FloatingLabelInputProps extends Omit<HTMLInputAttributes, "size
   children: Snippet;
   id?: string;
   value?: string | number | readonly string[] | undefined;
+  elementRef?: HTMLInputElement;
   "aria-describedby"?: string;
   variant?: FloatingLabelInputVaratiants["variant"];
   size?: FloatingLabelInputVaratiants["size"];
   color?: FloatingLabelInputVaratiants["color"];
   inputClass?: string;
   labelClass?: string;
+  clearable?: boolean;
+  clearableSvgClass?: string;
+  clearableColor?: CloseButtonVariants["color"];
+  clearableClass?: string;
+  clearableOnClick?: () => void;
+  data?: string[];
+  maxSuggestions?: number;
+  onSelect?: (item: string) => void;
 }
 
 // helper
@@ -701,11 +752,20 @@ export interface InputProps<T extends InputValue = string> extends Omit<HTMLInpu
   right?: Snippet;
   size?: InputVariants["size"];
   value?: T;
-  clearable?: boolean;
+  elementRef?: HTMLInputElement;
   color?: InputVariants["color"];
   classLeft?: string;
   classRight?: string;
   divClass?: string;
+  wrapperClass?: string;
+  clearable?: boolean;
+  clearableSvgClass?: string;
+  clearableColor?: CloseButtonVariants["color"];
+  clearableClass?: string;
+  clearableOnClick?: () => void;
+  data?: string[];
+  maxSuggestions?: number;
+  onSelect?: (item: string) => void;
 }
 
 // input-addon
@@ -740,6 +800,8 @@ export interface RadioButtonProps<T> extends Omit<HTMLInputAttributes, "size"> {
   size?: ButtonProps["size"];
   color?: ButtonProps["color"];
   shadow?: boolean;
+  class?: string;
+  checkedClass?: string;
 }
 
 // range
@@ -748,9 +810,15 @@ export interface RangeProps extends RangeVariants, Omit<HTMLInputAttributes, "si
 }
 
 // search
-export interface SearchProps<T> extends SearchVariants, Omit<HTMLInputAttributes, "size"> {
+export interface SearchProps extends SearchVariants, Omit<HTMLInputAttributes, "size"> {
   children?: Snippet;
-  value?: T;
+  value?: string;
+  elementRef?: HTMLInputElement;
+  clearable?: boolean;
+  clearableSvgClass?: string;
+  clearableColor?: CloseButtonVariants["color"];
+  clearableClass?: string;
+  clearableOnClick?: () => void;
 }
 
 // select
@@ -758,21 +826,77 @@ export type SelectOptionType<T> = {
   name: string | number;
   value: T;
   disabled?: boolean;
+  [key: string]: any;
 };
 
-export interface SelectProps<T> extends SelectVariants, Omit<HTMLSelectAttributes, "size"> {
+export interface SelectProps<T> extends SelectVariants, Omit<HTMLSelectAttributes, "size" | "disabled"> {
   children?: Snippet;
   items?: SelectOptionType<T>[];
+  elementRef?: HTMLSelectElement;
   placeholder?: string;
+  selectClass?: string;
+  clearable?: boolean;
+  clearableSvgClass?: string;
+  clearableColor?: CloseButtonVariants["color"];
+  clearableClass?: string;
+  clearableOnClick?: () => void;
+  disabled?: boolean;
 }
 
 export interface MultiSelectProps<T> extends MultiSelectVariants, Omit<HTMLSelectAttributes, "size" | "children"> {
   children?: Snippet<[{ item: SelectOptionType<T>; clear: () => void }]>;
-  items?: SelectOptionType<T>[];
-  // value?: (string | number)[];
+  items: SelectOptionType<T>[];
+  value: T[];
   dropdownClass?: string;
   placeholder?: string;
   disabled?: boolean;
+}
+
+// Tags
+export interface TagsProps extends HTMLAttributes<HTMLDivElement> {
+  value: string[];
+  itemClass?: string;
+  placeholder?: string;
+  class?: string;
+  spanClass?: string;
+  closeClass?: string;
+  inputClass?: string;
+  closeBtnSize?: CloseButtonVariants["size"];
+}
+
+// Timepicker
+export type TimePickerType = "default" | "dropdown" | "select" | "range" | "timerange-dropdown" | "timerange-toggle" | "inline-buttons";
+export type ColumnCount = 1 | 2 | 3 | 4;
+export type TimePickerOption = {
+  name: string;
+  value: string;
+};
+
+export interface TimepickerProps {
+  id?: string;
+  endId?: string;
+  value?: string;
+  endValue?: string;
+  min?: string;
+  max?: string;
+  required?: boolean;
+  disabled?: boolean;
+  inputColor?: InputProps["color"];
+  buttonColor?: ButtonProps["color"];
+  Icon?: Component | undefined;
+  type?: TimePickerType;
+  optionLabel?: string;
+  options?: TimePickerOption[];
+  size?: ButtonGroupSizeType; // Use the specific ButtonGroupSizeType
+  divClass?: string;
+  inputClass?: string;
+  selectClass?: string;
+  timerangeLabel?: string;
+  timerangeButtonLabel?: string;
+  timeIntervals?: string[];
+  columns?: ColumnCount;
+  // Callback props instead of events
+  onselect?: (data: { time: string; endTime: string; [key: string]: string }) => void;
 }
 
 // textarea
@@ -780,12 +904,18 @@ export interface TextareaProps extends HTMLTextareaAttributes {
   header?: Snippet;
   footer?: Snippet;
   value?: string;
+  elementRef?: HTMLTextAreaElement;
   wrapped?: boolean;
   divClass?: string | null;
   innerClass?: string;
   headerClass?: string;
   footerClass?: string;
   cols?: number;
+  clearable?: boolean;
+  clearableSvgClass?: string;
+  clearableColor?: CloseButtonVariants["color"];
+  clearableClass?: string;
+  clearableOnClick?: () => void;
 }
 
 // toggle
@@ -811,6 +941,9 @@ export interface GalleryProps extends HTMLAttributes<HTMLDivElement> {
   figure?: Snippet<[item: ImgType]>;
   items?: HTMLImgAttributes[];
   imgClass?: string;
+  height?: string;
+  rowHeight?: number;
+  columns?: number;
 }
 
 // indicator
@@ -831,13 +964,16 @@ export interface KbdProps extends HTMLAttributes<HTMLElement> {
 
 // list-group
 export interface ListGroupItemType {
-  name: string;
+  name?: string;
   Icon?: Component;
   onclick?: () => void;
   href?: string;
   active?: boolean;
   current?: boolean;
   disabled?: boolean;
+  img?: { src: string; alt: string };
+  comment?: string;
+  message?: string;
   [key: string]: any;
 }
 
@@ -859,6 +995,7 @@ export type ListgroupItemProps = Omit<ListgroupItemVariants, "state"> &
     Icon?: Component;
     iconClass?: string;
     name?: string;
+    children?: Snippet;
   };
 
 // mega-menu
@@ -868,6 +1005,7 @@ export interface MegaMenuProps extends Omit<PopperProps, "children"> {
   items?: LinkType[];
   full?: boolean;
   ulClass?: string;
+  isOpen?: boolean | undefined;
 }
 
 // modal
@@ -878,12 +1016,14 @@ export interface ModalProps extends ModalVariants, HTMLDialogAttributes {
   autoclose?: boolean;
   outsideclose?: boolean;
   dismissable?: boolean;
+  permanent?: boolean;
   transition?: TransitionFunc;
   params?: ParamsType;
   headerClass?: string;
   bodyClass?: string;
   footerClass?: string;
   closeBtnClass?: string;
+  onclose?: () => void;
 }
 
 // navbar
@@ -984,6 +1124,7 @@ export interface PopoverProps extends Omit<PopperProps, "title"> {
   params?: ParamsType | undefined;
   defaultClass?: string;
   transition?: TransitionFunc;
+  isOpen?: boolean | undefined;
 }
 
 // progress
@@ -1002,6 +1143,27 @@ export interface ProgressbarProps extends HTMLAttributes<HTMLDivElement> {
   labeloutsidedivClass?: string;
   labelInsideClass?: string;
   divClass?: string;
+}
+
+export interface ProgressradialProps {
+  progress?: number | string;
+  radius?: number;
+  startingPosition?: "top" | "right" | "bottom" | "left";
+  precision?: number;
+  tweenDuration?: number;
+  animate?: boolean;
+  size?: string;
+  thickness?: number | string;
+  labelInside?: boolean;
+  labelOutside?: string;
+  easing?: (t: number) => number;
+  color?: ColorType;
+  labelInsideClass?: string;
+  outsideSpanClass?: string;
+  outsideProgressClass?: string;
+  labelOutsideDivClass?: string;
+  divClass?: string;
+  [key: string]: any;
 }
 
 // rating
@@ -1198,6 +1360,7 @@ export interface CardPlaceholderProps extends HTMLAttributes<HTMLDivElement> {
 export interface ImagePlaceholderProps extends HTMLAttributes<HTMLDivElement> {
   size?: ImagePlaceholderVariants["size"];
   rounded?: ImagePlaceholderVariants["rounded"];
+  imgOnly?: boolean;
 }
 
 export interface ListPlaceholderProps extends HTMLAttributes<HTMLDivElement> {
@@ -1225,6 +1388,29 @@ export interface SpeedCtxType {
   textOutside: boolean;
 }
 
+type BaseSpeedDialTriggerProps = {
+  children?: any;
+  name?: string;
+  pill?: boolean;
+  icon?: Snippet;
+  class?: string;
+  [key: string]: any;
+};
+
+// Two different prop types based on gradient flag
+export type RegularSpeedDialTriggerProps = BaseSpeedDialTriggerProps & {
+  gradient?: false;
+  color?: ButtonColor;
+};
+
+export type GradientSpeedDialTriggerProps = BaseSpeedDialTriggerProps & {
+  gradient: true;
+  color?: GradientButtonColor;
+};
+
+// Union type that forces TypeScript to check properly
+export type SpeedDialTriggerProps = RegularSpeedDialTriggerProps | GradientSpeedDialTriggerProps;
+
 export type SpeedDialProps = PopperProps & {
   children: Snippet;
   button?: Snippet;
@@ -1236,6 +1422,7 @@ export type SpeedDialProps = PopperProps & {
   pill?: boolean;
   ontoggle?: PopperProps["ontoggle"];
   onbeforetoggle?: PopperProps["onbeforetoggle"];
+  isOpen?: boolean | undefined;
 };
 
 export type SpeedDialButtonProps = ButtonProps & {
@@ -1246,12 +1433,14 @@ export type SpeedDialButtonProps = ButtonProps & {
   textClass?: string;
 };
 
-export type SpeedDialTriggerProps = ButtonProps & {
-  icon?: Snippet;
-  gradient?: boolean;
-  name?: string;
-  color?: GradientButtonProps["color"];
-};
+// export type CombinedButtonColor = ButtonColor | GradientButtonColor;
+
+// export type SpeedDialTriggerProps = ButtonProps & {
+//   icon?: Snippet;
+//   gradient?: boolean;
+//   name?: string;
+//   color?: CombinedButtonColor;
+// };
 
 // spinner
 export interface SpinnerProps extends SVGAttributes<SVGSVGElement> {
@@ -1259,6 +1448,21 @@ export interface SpinnerProps extends SVGAttributes<SVGSVGElement> {
   size?: SpinnerVaraiants["size"];
   currentFill?: string;
   currentColor?: string;
+}
+
+// stepindicator
+export type StepColorType = "primary" | "secondary" | "gray" | "red" | "yellow" | "green" | "indigo" | "purple" | "pink" | "blue" | "custom";
+
+export interface StepIndicatorProps extends HTMLAttributes<HTMLElement> {
+  steps: string[];
+  currentStep: number;
+  size?: string;
+  color?: StepColorType;
+  glow?: boolean;
+  hideLabel?: boolean;
+  completedCustom?: string;
+  currentCustom?: string;
+  class?: string;
 }
 
 // tables
@@ -1324,8 +1528,14 @@ export interface TableBodyProps extends HTMLAttributes<HTMLTableSectionElement> 
   bodyItems?: BodyRow[];
 }
 
-export interface TableHeadCellProps extends HTMLThAttributes {
+export interface TableHeadCellProps<T = any> extends HTMLThAttributes {
   children?: Snippet;
+  padding?: string;
+  sort?: ((a: T, b: T) => number) | null;
+  defaultDirection?: "asc" | "desc";
+  defaultSort?: boolean;
+  direction?: "asc" | "desc" | null;
+  class?: string;
 }
 
 export type TableSearchType = {
@@ -1401,9 +1611,9 @@ export interface ActivityType {
 }
 
 export interface GroupTimelineType {
-  name: string | HTMLElement;
-  src: string;
-  alt: string;
+  name?: string | HTMLElement;
+  src?: string;
+  alt?: string;
   href?: string;
   isPrivate?: boolean;
   comment?: string | HTMLElement;
@@ -1470,25 +1680,49 @@ export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
   dismissable?: boolean;
   color?: ToastVaraints["color"];
   position?: ToastVaraints["position"];
-  baseClass?: string;
   iconClass?: string;
   contentClass?: string;
   align?: boolean;
   params?: ParamsType;
   transition?: TransitionFunc;
+  class?: string;
 }
 
 // tooltip
 export interface TooltipProps extends PopperProps {
-  type?: "light" | "dark";
+  type?: "light" | "dark" | "auto";
   color?: TooltipVariants["color"];
+  isOpen?: boolean | undefined;
 }
 
 // typography
 // anchor
-export interface AnchorProps extends HTMLAnchorAttributes {
+export interface AnchorProps {
   children: Snippet;
   color?: AnchorVariants["color"];
+  asButton?: boolean;
+  onclick?: (event: MouseEvent) => void;
+  // Common attributes that make sense for both button and anchor
+  id?: string;
+  class?: string;
+  style?: string;
+  tabindex?: number;
+  title?: string;
+  role?: string;
+  "aria-label"?: string;
+  "data-testid"?: string;
+  // Anchor-specific attributes (used when asButton is false)
+  href?: string;
+  target?: string;
+  rel?: string;
+  download?: string | boolean;
+  // Button-specific attributes (used when asButton is true)
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  name?: string;
+  value?: string | number | string[];
+  // Allow any other attributes (like data-* attributes)
+  [key: string]: any;
 }
 
 // blockquote
@@ -1523,7 +1757,7 @@ export interface HrProps extends HTMLAttributes<HTMLElement> {
 }
 
 // img
-export type EnhancedImgAttributes = Omit<HTMLImgAttributes, "src"> & { src: string | Picture };
+export type EnhancedImgAttributes = Omit<HTMLImgAttributes, "src"> & { src: string };
 
 export interface ImgProps extends HTMLImgAttributes {
   size?: ImgVariants["size"];
@@ -1611,3 +1845,34 @@ export interface VideoProps extends HTMLVideoAttributes {
   srclang?: HTMLTrackAttributes["lang"];
   label?: HTMLTrackAttributes["label"];
 }
+
+// popper
+export interface TriggeredToggleEvent extends ToggleEvent {
+  trigger: HTMLElement;
+}
+
+export interface PopperProps extends Omit<HTMLAttributes<HTMLDivElement>, "onbeforetoggle" | "ontoggle"> {
+  triggeredBy?: string;
+  trigger?: "hover" | "click";
+  placement?: Placement;
+  arrow?: boolean;
+  arrowClass?: string;
+  offset?: number;
+  yOnly?: boolean; // special case for megamenu - only move on y axis
+  strategy?: Strategy;
+  reference?: string | undefined;
+  middlewares?: Middleware[];
+  children: Snippet;
+  onbeforetoggle?: (ev: TriggeredToggleEvent) => void;
+  ontoggle?: (ev: TriggeredToggleEvent) => void;
+  transition?: TransitionFunc;
+  transitionParams?: ParamsType;
+  isOpen?: boolean | undefined;
+}
+
+export interface ArrowProps {
+    placement?: Placement;
+    cords: Partial<Coords>;
+    strategy?: "absolute" | "fixed";
+    class?: string;
+  }

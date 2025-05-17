@@ -1,6 +1,6 @@
 {
   "name": "svelte-lib-helpers",
-  "version": "0.4.27",
+  "version": "0.4.29",
   "description": "A utility package for Svelte libraries.",
   "type": "module",
   "main": "index.js",
@@ -15,8 +15,8 @@
     "gen:docsFromProps": "pnpm rmdoc && node ./index.js docsFromProps",
     "gen:docs5": "pnpm rmdoc && node ./index.js docs5",
     "gen:docs5FromType": "pnpm rmdoc && node ./index.js docs5FromType",
-    "gen:docspropvalue": "pnpm rmdoc && node ./index.js docspropvalue themesberg/flowbite-svelte-next",
-    "gen:component-data-prop-value": "pnpm rmdoc && node ./index.js component-data-prop-value themesberg/flowbite-svelte-next",
+    "gen:docspropvalue": "pnpm rmdoc && node ./index.js docspropvalue themesberg/flowbite-svelte",
+    "gen:component-data-prop-value": "pnpm rmdoc && node ./index.js component-data-prop-value themesberg/flowbite-svelte --debug",
     "gen:compo-data": "pnpm rmjson && node ./index.js compo-data",
     "gen:componentData": "pnpm rmjson && node ./index.js component-data",
     "gen:component-data-from-type": "pnpm rmdoc && pnpm rmjson && node ./index.js component-data-from-type",
@@ -50,7 +50,7 @@
   "bugs": {
     "url": "https://github.com/shinokada/svelte-lib-helpers/issues"
   },
-  "homepage": "https://github.com/shinokada/svelte-lib-helpers#readme",
+  "homepage": "https://svelte-lib-helpers.codewithshin.com/",
   "dependencies": {
     "jsonc-parser": "^3.3.1",
     "yargs": "^17.7.2"

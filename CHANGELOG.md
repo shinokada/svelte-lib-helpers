@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.29
+
+### Patch Changes
+
+- fix: can use $derived in props for componentDataPropValue
+
+## 0.4.28
+
+### Patch Changes
+
+- docs: update
+
 ## 0.4.27
 
 ### Patch Changes
