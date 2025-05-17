@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.30
+
+### Patch Changes
+
+- fix: extracting type link even if the type is imported from $lib
+
 ## 0.4.29
 
 ### Patch Changes
