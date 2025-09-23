@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.31
+
+### Patch Changes
+
+- feat: exports types if $lib/types.ts exists
+
 ## 0.4.30
 
 ### Patch Changes
